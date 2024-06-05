@@ -1,0 +1,213 @@
+\begin{questions}
+\question{ 证明方程 $ \frac{\partial u}{\partial t}=a^{2} \frac{\partial^{2} u}{\partial x^{2}}+c u(c \geqslant 0) $ 具狄利克雷边界条件的初边值问题解的唯一性与稳定性。
+}
+
+\begin{solution}
+    首先，考虑方程 $ \frac{\partial u}{\partial t} = a^{2} \frac{\partial^{2} u}{\partial x^{2}} + cu $，通过变换 $ v(x, t) = u(x, t)e^{-ct} $，我们得到新的方程：
+$$
+\frac{\partial v}{\partial t} = a^{2} \frac{\partial^{2} v}{\partial x^{2}}
+$$
+
+现在，我们有一个标准的热传导方程。我们可以使用热传导方程的极值原理来证明.
+
+不妨考虑矩形区域 
+$Q=\left\{(x, t) \mid 0< x < L ， 0 < t \leqslant T\right\}$. 作变换后 $v(x, t)$ 满足如下初边值问题: 
+$$\left\{\begin{array}{l}v_{t}=a^{2} v_{x x} \\ v(x, 0)=f(x) \\ v(0, t)=\varphi(x), v(L, t)=\psi(x)\end{array}\right.$$
+先证解的唯一性
+
+设 $ v(x, t) $ 和 $ v_{2}(x, t) $ 是在函数空间 $ C^{2,1}(Q) \bigcap c(\overline{Q}) $ 中的两个解. 记 $ v(x, t)=v_{1}(x, t)-v_{2}(x, t) $, 那么$ v(x, t) $满足齐次初边值条件的定解问题：
+$$\left\{\begin{array}{ll}
+v_{t}=a^{2} v_{x x} ,\quad 0 < x < L, 0 < t < T \\
+v(x, 0)=0 ,\quad 0 \leqslant x \leqslant L \\
+v(0, t)=v(L, t)=0, \quad 0 \leqslant t \leqslant T
+\end{array}\right.
+$$
+
+设 $\Gamma$ 为 $Q$ 的抛物边界, 由极值定理，对 $\forall(x, t) \in \overline{Q}$
+成立 
+$$0=\min _{\Gamma} v(x, t) \leqslant v(x, t) \leqslant \max_{ \overline Q} v(x, t)=0$$
+即在区域 $\overline Q$ 上, $ v(x, t)=0 $.
+则 $v_{1}(x, t)=v_{2}(x, t) $ ，于是 $ v(x, t) $ 唯一，也即 $ u(x, t) $ 唯一.
+
+下面考虑解的稳定性
+
+设 $ v_{i}(x, t) \quad(i=1,2) $ 是如下问题的解
+$$ \left\{\begin{array}{l}v_{t}=a^{2} v_{x x} \\ v(x, 0)=f_{i}(x) \\ v(0, t)=\varphi_{i}(t), v(L, t)=\psi_{i}(t)\end{array}\right. $$
+
+当 $ 0 \leqslant x \leqslant L ， 0 \leqslant t \leqslant T $ 时
+如果有 $|f(x)| < \varepsilon,|\varphi(t)| < \varepsilon,|\psi(t)| < \varepsilon$
+那么由极值原理得 $ |v(x, t)|<\varepsilon $,
+则 $|u(x, t)|=\left|v(x, t) \cdot e^{c t}\right|<\varepsilon e^{c T}$
+即 $u(x, t)$ 是稳定的.
+
+~\\
+或者按照如下证明（方法二）：
+
+在矩形域 $Q=\left\{\alpha < x < \beta , 0 < t \leqslant T\right\}$ 上考虑如下第一边值问题。
+$$
+\begin{array}{l}
+\text { (1) }\left\{\begin{array}{l}
+u_{t}=a^{2} u_{x x}+c u, c \geqslant 0,(x, t) \in Q \\
+\left.u\right|_{x=\alpha}=f_{1}(t),\left.u\right|_{x=\beta}=f_{2}(t), 0 \leqslant t \leqslant T . \\
+\left.u\right|_{t=0}=\varphi(x), \alpha \leqslant x \leqslant \beta
+\end{array}\right. \\
+\text { 作变换 } v(x, t)=u(x, t) \cdot e^{-c t} \cdot \text { 则 } v(x, t) \text { 满足 } \\
+\left\{\begin{array}{l}
+v_{t}=a^{2} v_{x x} \\
+v(\alpha, t)=e^{-c t} \cdot f_{1}(t), v(\beta, t)=e^{-c t} \cdot f_{2}(t) \\
+\left.v\right|_{t=0}=\varphi(x)
+\end{array}\right. 
+\end{array}
+$$
+
+设
+$$B=\max \left\{\sup _{[0, T]}\left|e^{-c t} \cdot f(t)\right|, \sup _{[0, T]}\left|e^{-c t} \cdot f_{2}(t)\right|\right\}$$
+$$M=\sup _{[\alpha, \beta]}|\varphi(x)|$$
+则由热传导方程的极值定理
+有 
+$|v(x, t)| \leqslant \max \{B , M\}$
+$$
+\begin{aligned}
+|u(x, t)| & =\left|v(x, t) \cdot e^{c t}\right| \\
+& \leqslant \max \left\{M e^{c t}, B e^{c t}\right\}
+\end{aligned}
+$$
+设 $u_{1} , u_{2}$ 是问题 $(1)$ 的两个解，则它们的差 $u(x, t)=u_{1}(x, t)-u_{2}(x, t)$ 满足如下第一边值问题:
+$$
+\left\{\begin{array}{l}
+u_{t}=a^{2} u_{x x}+c u \\
+\left.u\right|_{t=0}=0 ,\quad \alpha \leqslant x \leqslant \beta \\
+\left.u\right|_{x=\alpha}=\left.u\right|_{x=\beta}=0
+\end{array}\right.
+$$
+此时 $ M=B=0 $ 即有 $ |u(x, t)| \leqslant 0 $
+因此 $ u(x, t)=0 . \Rightarrow u_{1}=u_{2} $, 得证唯一性.
+
+设 $u_1$ 满足如下边值问题
+$$
+\begin{array}{l}
+\left\{\begin{array}{l}
+u_{t}=a^{2} u_{x x}+c u \\
+\left.u\right|_{t=0}=\varphi^{(1)}(x), \alpha \leq x \leq \beta \\
+\left.u\right|_{x=\alpha}=f_{1}^{(1)}(t),\left.u\right|_{x=\beta}=f_{2}^{(1)}(t)
+\end{array}\right. \\
+u_{2} \text { 满足 }\left\{\begin{array}{l}
+u_{t}=a^{2} u_{x x}+c u \\
+u_{t=0}=\varphi^{(2)}(x) \quad \alpha \leqslant x \leqslant \beta \\
+\left.u\right|_{x=\alpha}=f_{1}^{(2)}(t),\left.u\right|_{x=\beta}=f_{2}^{(2)}(t)
+\end{array}\right. \\
+\end{array}
+$$
+则 $u=u_{1}-u_{2}$ 满足如下边值问题
+$$
+\left\{\begin{array}{l}
+u_{t}=a^{2} u_{x x}+c u \\
+\left.u\right|_{t=0}=\varphi^{(1)}(x)-\varphi^{(2)}(x) \\
+\left.u\right|_{x=\alpha}=f_{1}^{(1)}(t)-f_{1}^{(2)}(t),\left.u\right|_{x=\beta}=f_{2}^{(1)}(t)-f_{2}^{(2)}(t)
+\end{array}\right.
+$$
+$\text { 对 } \forall \varepsilon>0 ， \exists \delta>0 \text { 时 }$
+$$
+\begin{aligned}
+\text { 使得当 } \max _{[\alpha, \beta]}\left|\varphi^{(1)}(x)-\varphi^{(2)}(x)\right| & <\delta \\
+\max _{[0, T]}\left|f_{1}^{(1)}(t)-f_{1}^{(2)}(t)\right| & <\delta \\
+\max _{[0, T]}\left|f_{2}^{(1)}(t)-f_{2}^{(2)}(t)\right| & <\delta \text { 成立时 } \\
+\max |u(x, t)|=\max \left|u_{1}-u_{2}\right| & \leqslant \delta \cdot \max \left\{M e^{c t}, B e^{c t}\right\} \\
+& \leqslant \delta \cdot \max \left\{M e^{c T}, B e^{c T}\right\} \\
+\end{aligned}
+$$
+ 取 
+$\delta  =\frac{\varepsilon}{\max \left\{M e^{c T}, B e^{c T}\right\}}$,
+则 $ \max \left|u_{1}(x, t)-u_{2}(x, t)\right|<\varepsilon $.
+因此该初边值问题的解为稳定的。
+\end{solution}
+
+\question{ 利用证明热传导方程极值原理的方法. 证明满足方程 $ \frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0 $ 的函数在有界闭区域上 的最大值不会超过它在边界上的最大值。
+}
+
+\begin{solution}
+    设 $\Omega$ 是 $ R^{2} $ 中的有界闭区域，边界 $ \partial \Omega $ 光滑 且 $ u \in C^{2}(\Omega) \cap C(\overline{\Omega}), \Delta u=u_{x x}+u_{y y}=0$,$(x, y) \in \Omega $
+
+用反证法. 记 $m$ 是 $u$ 在边界 $ \partial \Omega $ 上的最大值 设 $u$ 在闭区域 $ \overline{\Omega} $ 上的最大值 $ M $ 在 $ \Omega $ 的内部点 $ M_{0}\left(x_{0}, y_{0}\right) $ 取得.  设 $ u\left(x_{0}, y_{0}\right)=M $, 显然 $ M \geqslant m $
+
+若 $M > m$, 我们作一辅助函数
+$$
+v(x, y)=u(x, y)+\frac{M-m}{4 R^{2}}\left[\left(x-x_{0}\right)^{2}+\left(y-y_{0}\right)^{2}\right]
+$$
+其中 $ R $ 是闭区域 $\overline{\Omega}$ 的半径.
+
+注意到 $ v\left(x_{0}, y_{0}\right)=u\left(x_{0}, y_{0}\right)=M $,
+且在边界 $ \partial \Omega $ 上有 $ v(x, y) \leqslant m+M-m=M $.
+这表明函数 $ v(x, y) $ 在区域 $ \Omega $ 内部的某一点 $ M_{1}\left(x_{1}, y_{1}\right) $ 上取到最大值.
+在该点外 
+$$ \quad \Delta V=v_{x x}+v_{y y}=u_{x x}+u_{y y}+\frac{M-m}{R^{2}}=\frac{M-m}{R^{2}}>0 $$
+但在 $ M_{1} $ 点处. $ v_{x x} \leqslant 0 ， v_{y y} \leqslant 0 $, 即 $ \Delta V \leqslant 0 $.
+这与上式矛盾，故 $ M=m $. 得证
+\end{solution}
+
+\question{ 证明: 当 $ \varphi(x, y) $ 为 $ R^{2} $ 上的有界连续函数, 且 $ \varphi  \in L^{1}\left(R^{2}\right) $ 时， 二维热传导方程柯西问题的解，当 $ t \rightarrow+\infty $ 时，以 $ t^{-1} $ 衰减率趋于零
+}
+
+\begin{solution}
+    要证明二维热传导方程的柯西问题在 $ t \rightarrow +\infty $ 时以 $ t^{-1} $ 的衰减率趋于零，首先回顾二维热传导方程和其解的表达式。
+
+二维热传导方程的柯西问题如下
+$\left\{\begin{array}{l}
+u_{t}=a^{2} \Delta u \\
+\left.u\right|_{t=0}=\varphi(x, y)
+\end{array}\right.$
+
+对方程和初始条件作傅里叶变换
+$$
+\begin{array}{l}
+F[u(x, y, t)]=\tilde{u}\left(\lambda_{1}, \lambda_{2}, t\right)=\iint_{R^{2}} u(x, y, t) e^{-i\left(\lambda_{1} x+\lambda_{2} y\right)} d x d y \\
+F[\varphi(x, y)]=\tilde{u}\left(\lambda_{1}, \lambda_{2}\right)=\iint_{R^{2}} \varphi(x, y) e^{-i\left(\lambda_{1} x_{1}+\lambda_{2} x_{2}\right)} d x d y \\
+\end{array}
+$$
+则有
+$$
+\left\{\begin{array}{l}
+\frac{d \tilde{u}}{d t}=\left[\left(i \lambda_{1}\right)^{2}+\left(i \lambda_{2}\right)^{2}\right] a^{2} \tilde{u}^{2}=-\left(\lambda_{1}^{2}+\lambda_{2}\right)^{2} a^{2} \tilde{u} \\
+\tilde{u}\left(\lambda_{1}, \lambda_{2}, 0\right)=\tilde{u}\left(\lambda_{1}, \lambda_{2}\right)
+\end{array}\right.
+$$
+可看作 $\tilde u$ 关于 $t$ 的常微分方程的初值问题
+
+解得: 
+$$\tilde{u}\left(\lambda_{1}, \lambda_{2}, t\right)=\tilde{u}\left(\lambda_{1}, \lambda_{2}\right) \cdot e^{-a^{2}\left(\lambda_{1}^{2}+\lambda_{1}^{2}\right) t} $$
+于是 
+$$ u(x, y, t)=F^{-1}\left[\tilde{u}\left(\lambda_{1}, \lambda_{2}, t\right)\right]$$
+
+$$
+=F^{-1}\left[\tilde{u}\left(\lambda_{1}, \lambda_{2}\right) \cdot e^{-a^{2}\left(\lambda_{1}^{2}+\lambda_{2}^{2}\right) t}\right]
+$$
+利用卷积定理
+有 
+$$u(x, y, t)=F^{-1}\left[\tilde{\varphi}\left(\lambda_{1}, \lambda_{2}\right)\right] * F^{-1}\left[e^{-a^{2}\left(\lambda_{1}^{2}+\lambda_{2}^{2}\right) t}\right] $$
+$$
+\begin{aligned}
+F^{-1}\left[e^{-a^{2}\left(\lambda_{1}^{2}+\lambda_{2}^{2}\right) t}\right] & =\frac{1}{(2 \pi)^{2}} \iint_{R^{2}} e^{-a^{2}\left(\lambda_{1}^{2}+\lambda_{2}^{2}\right) t} \cdot e^{i\left(\lambda_{1} x+\lambda_{2} y\right)} d \lambda_{1} d \lambda_{2} \\
+& =\left(\frac{1}{2 \pi} \int_{R}^{}{e^{ -a^{2} \lambda_{1}^{2}}} \cdot e^{i \lambda_{1} x} d \lambda_{1}\right)\left(\frac{1}{2 \pi} \int_{R} e^{-a^{2} \lambda_{2}^{2} t} \cdot e^{i \lambda_{2} y} d \lambda_{2}\right) \\
+& =\left(\frac{1}{2 a \sqrt{\pi t}} \cdot \exp \left\{-\frac{x^{2}}{4 a^{2} t}\right\}\right) \cdot\left(\frac{1}{2 a \sqrt{\pi t}} \exp \left\{-\frac{y^{2}}{4 a^{2} t}\right\}\right) \\
+& =\frac{1}{4 a^{2} \pi t} \exp \left\{-\frac{x^{2}+y^{2}}{4 a^{2} t}\right\}
+\end{aligned}
+$$
+于是 
+$$u(x, y, t)=\frac{1}{4 a^{2} \pi t} \iint_{R^{2}} u(\xi, \eta) \exp \left\{-\frac{(x-\xi)^{2}+(y-\eta)^{2}}{4 a^{2} t}\right\} d \xi d \eta $$
+由积分的绝对值不等式
+有 
+$$ |u(x, y, t)| \leqslant \frac{1}{4 a^{2} \pi t} \iint_{R^{2}}|u(\xi, \eta)| \exp \left\{-\frac{(x-\xi)^{2}+(y-\eta)^{2}}{4 a^{2} t}\right\} d \xi d \eta $$
+$$
+\leqslant \frac{1}{4 a^{2} \pi t} \iint_{R^{2}}|\varphi(\xi, \eta)| d \xi d \eta
+$$
+由于 $ \varphi(x, y) $ 为 $R^{2}$ 上的有界连续函数，
+则 $$ |u(x, y, t)| \leqslant \frac{C}{t} \rightarrow 0 $$
+其中 $C$ 为一个仅与 $a$ 及
+$$\|R(\xi, \eta)\|_{L^{1}\left(R^{2}\right)}=\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}|\varphi(\xi, \eta)| d \xi d \eta $$
+有关的正常数.
+
+
+
+
+\end{solution}
+\end{questions}

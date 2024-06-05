@@ -1,0 +1,97 @@
+\begin{questions}
+\question{ 用分离变量法求解由下述调和方程的第一边值问题所描述的矩形平板 $ (0 \leqslant x \leqslant a, 0 \leqslant y \leqslant b) $ 上的稳定温 度分布:
+$$
+\left\{\begin{array}{l}
+\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=0 \\
+u(0, y)=u(a, y)=0 \\
+u(x, 0)=\sin \frac{\pi x}{a}, u(x, b)=0
+\end{array}\right.
+$$
+}
+\begin{solution}
+应用分离变量法：设 $ u(x, y)=X(x) \cdot Y(y) $
+代入 定解问题中的方程 $ \Delta u=0 $ ，分离变量得
+$$
+\frac{X^{\prime \prime}(x)}{X(x)}=-\frac{Y^{\prime \prime}(y)}{Y(y)}=-\lambda(\text { 其中 } \lambda \text { 为常数) }
+$$
+得到两个常微分方程: $ X^{\prime \prime}(x)+\lambda X(x)=0, Y^{\prime \prime}(y)-\lambda Y(y)=0 $.
+由边界条件得 $ X(0)=X(a)=0 $ ，这样就得到边值问题
+$$
+\left\{\begin{array}{l}
+X^{\prime \prime}(x)+\lambda X(x)=0 \\
+X(0)=X(a)=0 .
+\end{array} \quad \text { 固有值 ：} \lambda=\lambda_{k}=\left(\frac{k \pi}{a}\right)^{2}\right.
+$$
+固有函数
+$$ X_{k}(x)=C_{k} \sin \frac{k \pi x}{a} , k=1,2,3 \cdots $$
+代入另一个常微分方程 $ Y^{\prime \prime}(y)-\lambda Y(y)=0 $
+
+求得它的通解为 $$ Y_{k}(y)=a_{k} e^{\frac{k \pi}{a} \cdot y}+b_{k} \cdot e^{-\frac{k \pi}{a} \cdot y}, k=1,2 \ldots $$
+因此 
+$$u_{k}(x, y)=\left(A_{k} e^{\frac{k \pi}{a} y}+B_{k} e^{-\frac{k \pi}{a} y}\right) \sin \frac{k \pi x}{a} $$
+利用叠加原理
+$$u(x, y)=\sum\limits_{k=1}^{\infty}\left(A_{k} \cdot e^{\frac{k \pi y}{a}}+B_{k} \cdot e^{-\frac{k \pi y}{a}}\right) \cdot \sin \frac{k \pi x}{a} $$
+利用边界条件得
+$$
+\begin{array}{l}
+\left\{\begin{array}{l}
+u(x, 0)=\sum\limits_{k=1}^{\infty}\left(A_{k}+B_{k}\right) \sin \frac{k \pi x}{a}=\sin \frac{\pi x}{a} \\
+u(x, b)=\sum\limits_{k=1}^{\infty}\left(A_{k} \cdot e^{\frac{k \pi b}{a}}+B_{k} \cdot e^{-\frac{k \pi b}{a}}\right)\cdot \sin \frac{k \pi x}{a}=0
+\end{array}\right.
+\end{array}
+$$
+根据傅里叶系数展开有
+$$ A_{k}+B_{k}=\frac{2}{a} \int_{0}^{a} \sin \frac{\pi x}{a} \cdot \sin \frac{k \pi x}{a}=\left\{\begin{array}{ll}0 ,& k \neq 1 \\ 1 ,& k=1 .\end{array}\right. $$
+$$ A_{k} \cdot e^{\frac{k \pi b}{a}}+B_{k} \cdot e^{-\frac{k \pi b}{a}}=0$$
+
+则 $ k \neq 1 $ 时, $ A_{k}=B_{k}=0 $
+
+$ k=1 $ 时, $ \left\{\begin{array}{c}A_{1}+B_{1}=1 \\ A_{1} e^{\frac{\pi b}{a}}+B_{1} e^{-\frac{\pi b}{a}}=0\end{array}\right. $ 即 $ \left\{\begin{array}{l}A_{1}=\frac{-e^{-\frac{\pi b}{a}}}{e^{\frac{\pi b}{a}}-e^{-\frac{\pi b}{a}}} \\ B_{1}=\frac{e^{\frac{\pi b}{a}}}{e^{\frac{\pi b}{a}}-e^{-\frac{\pi b}{a}}}\end{array}\right. $
+又 $\sinh k x=\frac{1}{2} ( e^{k x}-e^{-k x}) $, 则 
+$$ A_{1}=\frac{-e^{-\frac{\pi b}{a}}}{2 \sinh \frac{\pi b}{a}},\quad B_{1}=\frac{e^{\frac{\pi b}{a}}}{2 \sinh \frac{\pi b}{a}} $$
+因此该调和方程的第一边值问题的解为：
+$$ 
+u(x, y)=\left(A_{1} e^{\frac{\pi y}{a}}+B_{1} e^{-\frac{\pi y}{a}}\right) \sin \frac{\pi x}{a} =\frac{e^{\frac{\pi}{a}(b-y)}-e^{-\frac{\pi}{a}(b-y)}}{2 \sinh \frac{\pi b}{a}} \cdot \sin \frac{\pi x}{a}=\frac{\sinh \frac{\pi}{a}(b-y)}{\sinh \frac{\pi b}{a}} \sin \frac{\pi x}{a}$$
+
+
+\end{solution}
+
+\question{
+若函数 $ u(x, y) $ 是单位圆上的调和函数，又它在单位 圆周上的数值已知为 $ u=\sin \theta $ ，其中 $ \theta $ 表示极角，问函数 $ u $ 在原点的值等于多少?
+}
+\begin{solution}
+    不妨将该单位圆上的调和函数表示为 $ u(r ， \theta) $， 在单位圆 $ r=1 $ 上 $ u(1, \theta)=\sin \theta $ .设原点为 $ P_{0}(0,0) ,$ 以 $ P_{0} $ 为圆心，充分小正数 $ \varepsilon $ 为半径的圆域记为 $ B_{\varepsilon} $ . 设单位圆围成的区域为 $ \Omega $ ，显然 $ P_{0} \in \Omega $ ，且 $ \overline{B}_{\varepsilon}\left(P_{0}\right) \subset \Omega $ , 则
+    $$ u(0,0)=\frac{1}{2 \pi \varepsilon} \int_{\partial B_{\varepsilon}} u d s $$
+    取 $ \varepsilon=1 $ ,得 $$ u(0,0)=\frac{1}{2 \pi} \int_{\partial B} u d s=\frac{1}{2 \pi} \int_{0}^{2 \pi} \sin \theta d \theta=0 .$$
+\end{solution}
+    
+\question{
+考虑调和方程 $ \Delta u=u_{x x}+u_{y y}+u_{z z}=0 $.
+
+设 $ r=r_{M_{0} M}=\left[\left(x-x_{0}\right)^{2}+\left(y-y_{0}\right)^{2}+\left(z-z_{0}\right)^{2}\right]^{\frac{1}{2}} $
+
+其中$ G\left(M, M_{0}\right)=\frac{1}{4 \pi r}-g\left(M, M_{0}\right) $ 是狄利克雷问题 $ \left\{\begin{array}{l}\Delta u=0 \\ \left.u\right|_{\Gamma}=f(M)\end{array}\right. $ 的格林函数.
+
+$ g\left(M, M_{0}\right) $ 在区域$\Omega$内关于变量$M$是处处调和的，
+并且在区域$\Omega$的边界上$\Gamma$与函数 $ \frac{1}{4 \pi r} $ 在边界上的值相同, 
+即 $ \left.g\left(M, M_{0}\right)\right|_{\Gamma}=\left.\dfrac{1}{4 \pi r}\right|_{\Gamma} $
+
+证明：格林函数 $ G\left(M ， M_{0}\right) $ 除 $ M=M_{0} $ 一点外处处满足 $ \Delta u=0 $. 而当 $ M \rightarrow M_{0} $ 时， $ G\left(M ， M_{0}\right) $ 趋于无穷大，其阶数和 $ \dfrac{1}{4 \pi r_{M_{0} M}} $ 相同.
+}
+\begin{solution}
+    由于 $ \dfrac{1}{4 \pi r} $ 除 $ M=M_{0} $ 外处处满足 $ \Delta u=0 $. 且 $ g\left(M, M_{0}\right) $ 在 $ \Omega $ 内关于变量 $ M $ 处处调和，因此 $ \Delta \frac{1}{4 \pi r}=\Delta g\left(M, M_{0}\right)=0 $
+
+除 $ M=M_{0} $ 外有 $ \Delta G\left(M, M_{0}\right)=\Delta\left(\frac{1}{4 \pi r}-g\left(M, M_{0}\right)\right)=\Delta \frac{1}{4 \pi r}-\Delta g\left(M, M_{0}\right)=0 $. 
+
+$ M \rightarrow M_{0} $ 时, $ r=r_{M M_{0}} \rightarrow 0 $. 则 $ \frac{1}{4 \pi r} \rightarrow+\infty $.
+由极值定理的推论: 在有限区域 $ \Omega $ 内调和，在 $ \Omega \cup \Gamma $ 上连续的函数 在边界$\Gamma$上取得最大值和最小值.
+
+我们可以知道函数 $ g\left(M ， M_{0}\right) $ 在 $ \Omega \cup \Gamma $ 上取得最值.
+$$\lim _{M \rightarrow M_{0}} G\left(M, M_{0}\right)=\lim _{M \rightarrow M_{0}} \frac{1}{4 \pi r}-g\left(M, M_{0}\right)=+\infty $$
+$$
+\quad \lim _{M \rightarrow M_{0}} \frac{G\left(M, M_{0}\right)}{\frac{1}{4 \pi r}}=\lim _{M \rightarrow M_{0}} \frac{\frac{1}{4 \pi r}-g\left(M, M_{0}\right)}{\frac{1}{4 \pi r}}=1-\lim _{M \rightarrow M_{0}} 4 \pi r \cdot g\left(M, M_{0}\right)=1
+$$
+因此 $ G\left(M, M_{0}\right) $ 阶数与 $ \frac{1}{4 \pi r_{M_{0} M}} $ 相同.
+\end{solution}
+
+\end{questions}

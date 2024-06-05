@@ -1,0 +1,96 @@
+\begin{questions}
+\question{
+  利用传播波法，求解波动方程的古尔萨 (Goursut) 问题。
+$$
+\left\{\begin{array}{l}
+	\frac{\partial^{2} u}{\partial t^{2}}=a^{2} \frac{\partial^{2} u}{\partial x^{2}} \\
+	\left.u\right|_{x-a t=0}=\varphi(x) \\
+	\left.u\right|_{x+a t=0}=\psi(x), u(0)=\psi(0) .
+\end{array}\right.
+$$
+}
+
+\begin{solution}
+设 $ u(x, t) $ 具有行波解 $ u=F(x-a t)+G(x+a t) $.
+由边界条件
+$$
+\begin{array}{l}
+	x -at =0 \text { 时有 } u=\varphi(x) \text { 即 } F(0)+G(2 x)=\varphi(x) \quad \left( F(0)+G(x)=\varphi\left(\frac{x}{2}\right)\right) \\
+	x+a t=0 \text { 时有 } u=\psi(x) \text { 即 } F(2 x)+G(0)=\psi(x)  \quad \left(F(x)+G(v)=\psi\left(\frac{x}{2}\right)\right) \\
+\end{array}
+$$
+因此得到$ F(x)=\psi\left(\frac{x}{2}\right)-G(0) $, $ G(x)=\varphi\left(\frac{x}{2}\right)-F(0) $
+
+又$u(0,0)=\varphi(0)=\psi(0)$, 
+则有$  G(0)=\varphi(0)-F(0) \quad,F(0)=\psi(0)-G(0)$
+$$
+\begin{array}{l}
+	\Rightarrow F(0)+G(0)=\frac{1}{2}[\psi(0)+\varphi(0)]=\psi(0)=\varphi(0) \\
+\end{array}
+$$
+因此
+$$
+\begin{aligned}
+	u(x, t) & =F(x-a t)+G(x+a t)   \\
+	& =\psi\left(\frac{x-a t}{2}\right)-G(0)+\varphi\left(\frac{x+a t}{2}\right)-F(0) \\
+	& =\psi\left(\frac{x-a t}{2}\right)+\varphi\left(\frac{x+a t}{2}\right)-\psi(0)
+\end{aligned}
+$$
+\end{solution}
+
+\question{
+ 求解 
+$$ \left\{\begin{array}{l}u_{t t}-a^{2} u_{x x}=0 \quad x > 0, t > 0 . \\ \left.u\right|_{t=0}=\left.\varphi (x) \quad u_{t}\right|_{t=0}=0 . \\ u_{x}-\left.k u_{t}\right|_{x=0}=0 .\end{array}\right. $$ 
+其中$k$为正常数.
+}
+
+\begin{solution}
+波动方程的通解为 $ u(x, t)=F(x-a t)+G(x+a t) $.
+由初始条件 $ t=0 $ 时 $ u=\varphi (x) $, $ \frac{\partial u}{\partial t}=0 $.
+
+有 $ F(x)+G(x)=\varphi (x) $,
+
+$
+-a F^{\prime}(x)+a G^{\prime}(x)=0 . \Rightarrow F^{\prime}(x)=G^{\prime}(x) \Rightarrow F(x)=G(x)+c 
+$
+
+因此有 
+$$ \left\{\begin{array}{l}F(x)=\frac{1}{2} \varphi (x)+\frac{c}{2} \\ G(x)=\frac{1}{2} \varphi (x)-\frac{c}{2}\end{array} \quad\right. $$ 
+
+令 $ x=0 $ 则 $ c=F(0)-G(0) $ 
+
+$
+\text {显然} x+a t > 0 \text {, 则 } G(x+a t)=\frac{1}{2} \varphi(x+a t)-\frac{c}{2}
+$
+$$
+\begin{array}{l}
+	\text { 当 } x -at \geqslant 0 \text { 时 } F(x-a t)=\frac{1}{2} \varphi(x-a t)+\frac{c}{2} \\
+	u(x, t)=F(x-a t)+G(x+a t)=\frac{1}{2}[\varphi(x-a t)+\varphi(x+a t)]
+\end{array}
+$$
+当 $ x-a t<0 $ 时,
+由边界条件 $ x=0 $ 时 $ \frac{\partial u}{\partial x}-k \cdot \frac{\partial u}{\partial t}=0 $.
+$$
+\begin{array}{l}
+	\Rightarrow F^{\prime}(-a t)+G^{\prime}(a t)-k\left[-a F^{\prime}(-a t)+a G^{\prime}(a t)\right]=0 \\
+	(1+k a) F^{\prime}(-a t)+(1-k a) G^{\prime}(a t)=0 . \\
+	\text { 令 } x=a t \quad  \text{则}(1+k a) F^{\prime}(-x)+(1-k a) G^{\prime}(x)=0 . \\
+	\text{积分} \int_{0}^{x}(1+k a) F^{\prime}(-x)+(1-k a) G^{\prime}(x)=c_{1} \\
+	\quad-(1+k a) F(-x)+(1-k a) G(x)=c_{1}
+\end{array}
+$$
+$$ \begin{array}{l}\text { 令 } x=0 \text { 则 } C_{1}=-(1+k a) F(0)+(1-k a) G(0)  \\ F(-x)=\frac{1-k a}{1+k a} G(x)-\frac{c_{1}}{1+k a} \text {. } \\ \Rightarrow F(x-a t)=F[-(a t-x)]=\frac{1-k a}{1+k a} G(a t-x)-\frac{c_{1}}{1+k a} \\ \text { 则 } u(x, t)=F(x-a t)+G(x+a t) \\ =\frac{1-k a}{1+k a} G(a t-x)-\frac{c_{1}}{1+k a}+G(x+a t) \text {. } \\ =\frac{1-k a}{1+k a}\left[\frac{1}{2} \varphi(a t-x)-\frac{c}{2}\right]-\frac{c_1}{1+k a}+\frac{1}{2} \varphi(x+a t)-\frac{c}{2} \\ =\frac{1}{2} \varphi(x+a t)+\frac{1-k a}{2(1+k a)} \varphi(a t-x)+\frac{1}{1+k a}\left[-\frac{c}{2}(1-k a)-c_{1}\right]-\frac{c}{2} \end{array} $$
+由上述知$ F(0)+G(0)=\varphi(0)$，我们计算
+$$ \begin{aligned} & \frac{1}{1+k a}\left[-\frac{c}{2}(1-k a)-c_{1}\right]-\frac{c}{2} \\ = & \frac{1}{1+k a}\left[-\frac{c}{2}(1-k a)-\frac{c}{2}(1+k a)-c_{1}\right] \\ = & \frac{1}{1+k a}\left(-c-c_{1}\right)=\frac{1}{1+k a}[G(0)-F(0)+(1+k a) F(0)-(1-k a) G(0)] \\ = & \frac{1}{1+k a}[k a F(0)+k a G(0)]=\frac{k a}{1+k a}[F(0)+G(0)] \\ = & \frac{k a}{1+k a} \varphi(0)\end{aligned} $$
+因此解为：
+$$ u(x, t)=\frac{1}{2} \varphi(x+a t)+\frac{1-k a}{2(1+k a)} \varphi (a t-x)+\frac{k a}{1+k a} \varphi(0) \\$$
+
+综上所述，
+$$
+u(x,t)=\left\{\begin{array}{l}
+	\frac{1}{2}[\varphi(x-a t)+\varphi(x+a t)] ,\quad x \geq at\\
+	\frac{1}{2} \varphi(x+a t)+\frac{1-k a}{2(1+k a)} \varphi(a t-x)+\frac{k a}{1+k a} \varphi(0) , \quad 0< x< at\\
+\end{array}\right.
+$$
+\end{solution}
+\end{questions}

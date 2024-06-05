@@ -1,0 +1,102 @@
+\subsection{调和函数的基本积分公式证明}
+\begin{questions}
+\question{ 证明: $$ -\iint_{\Gamma}\left(u \frac{\partial}{\partial \vec{\boldsymbol{n}}}\left(\frac{1}{r}\right)-\frac{1}{r} \frac{\partial u}{\partial \vec{\boldsymbol{n}}}\right) d S=\left\{\begin{array}{l}0, \text { 若 } M_{0} \text { 在 } \Omega \text { 外 } \\ 2 \pi u\left(M_{0}\right), \text { 若 } M_{0} \text { 在 } \Gamma \text { 上 } \\ 4 \pi u\left(M_{0}\right), \text { 若 } M_{0} \text { 在 } \Omega \text { 内 }\end{array}\right. $$
+}
+\begin{solution}
+$$
+\text { 格林第二公式 } \iiint_{\Omega}(u \cdot \Delta v-v \cdot \Delta u) d \Omega=\iint_{\Gamma}\left(u \cdot \frac{\partial v}{\partial \vec{\boldsymbol n}}-v \cdot \frac{\partial u}{\partial \vec{\boldsymbol n}}\right) dS
+$$
+$ \Omega $ 是以足够光滑的曲面$\Gamma $为边界的有界区域,
+$ u , v $ 以及它们的所有一阶偏导数在闭区域 $ \Omega \cup  \Gamma $ 上连续，所有二阶偏导数在 $ \Omega $ 内连续.
+
+三维拉普拉斯方程的基本解:( $ \left.\Delta u=u_{x x}+u_{y y}+u_{z z}=0\right) $
+
+若 $ M_{0}\left(x_{0}, y_{0}, z_{0}\right) $ 是区域 $ \Omega $ 内的一个固定点, 除点 $ M_{0} $ 外，函数 $ v=\frac{1}{r}\left(r=r_{M_{0} M}\right) $ 处处满足 $ \Delta v=0 $.
+于是 $ v=\frac{1}{r}=\left[\left(x-x_{0}\right)^{2}+\left(y-y_{0}\right)^{2}+\left(z-z_{0}\right)^{2}\right]^{\frac{1}{2}} $
+
+ (1) 当$M_0$在 $ \Omega $ 内时
+取 $ B_{\varepsilon}\left(M_{0}\right) $ 为 $ \Omega $ 内一个以$M$为中心)，充分小正数 $ \varepsilon $ 为半径的球域，记该球面为 $ \Gamma_{\varepsilon} $ 在区域 $ \Omega \backslash B_{\varepsilon} $ 中应用格林第二公式
+
+\begin{equation}
+\iiint_{\Omega \backslash B_{\varepsilon}}\left(u \cdot \Delta \frac{1}{r}-\frac{1}{r} \cdot \Delta u\right) d \Omega=\iint_{\Gamma \cup \Gamma_{\varepsilon}}\left(u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \frac{\partial u}{\partial n}\right) d S
+\end{equation}
+在区域 $ \Omega \backslash B_{\varepsilon} $ 内 $ \Delta u=0 , \Delta \frac{1}{r}=0 $. 即 (1) 式左边为 0 .
+
+在球面 $ \Gamma_{\varepsilon} $ 上. 任一点的外法线方向实际上是从该点沿着半径指向球心$M_0$的方向, 所以 
+$$ \frac{\partial}{\partial n}\left(\frac{1}{r}\right)=-\frac{\partial}{\partial r}\left(\frac{1}{r}\right)=\frac{1}{r^{2}}=\frac{1}{\varepsilon^{2}} $$
+从而 
+$$ \iint_{\Gamma_{\varepsilon}} u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right) d S=\frac{1}{\varepsilon^{2}} \iint_{\Gamma_{\varepsilon}} u d S=\frac{1}{\varepsilon^{2}} \cdot \bar{u} \cdot 4 \pi \varepsilon^{2}=4 \pi \bar{u} $$
+其中$\bar{u}$为函数$u$在球面 $ \Gamma_{\varepsilon} $ 上的平均值.
+同样地, $$ \iint_{\Gamma_{\varepsilon}} \frac{1}{r} \cdot \frac{\partial u}{\partial n} d S=\frac{1}{\varepsilon} \iint_{\Gamma_{\varepsilon}} \frac{\partial u}{\partial n} d S=\frac{1}{\varepsilon} \cdot\overline{\left(\frac{\partial u}{\partial n}\right)} \cdot 4 \pi \varepsilon^{2}=4 \pi \varepsilon \cdot\overline{\left(\frac{\partial u}{\partial n}\right)} $$ 其中 $ \overline{\left(\frac{{\partial u}}{\partial n}\right)} $ 为函数$\left(\frac{{\partial u}}{\partial n}\right)$在球面 $ \Gamma_{\varepsilon} $ 上的平均值.
+
+于是(1)式可化为 
+$$
+\begin{aligned}
+ 0&=\iint_{\Gamma+\Gamma_{\varepsilon}}\left(u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac 1 r \cdot \frac{\partial u}{\partial n}\right) d S\\
+= & \iint_{\Gamma}\left(u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \cdot \frac{\partial u}{\partial n}\right) d S+\iint_{\tau_{\varepsilon}}\left(u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r}\cdot \frac{\partial u}{\partial n}\right) d S \\
+= & \iint_{\Gamma} u \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \cdot \frac{\partial u}{\partial n} d S+4 \pi\left[\overline{u}-\overline{\left(\frac{\partial u}{\partial n}\right)} \cdot \varepsilon\right]
+\end{aligned}
+$$
+令 $ \varepsilon \rightarrow 0 $, 则 $ \lim\limits _{\varepsilon \rightarrow 0} \bar{u}=u\left(M_{0}\right), \lim \limits_{\varepsilon \rightarrow 0} 4 \pi \varepsilon\overline{\left(\frac{\partial u}{\partial u}\right)}=0 $.
+
+因此 $$ u\left(M_{0}\right)=-\frac{1}{4 \pi} \iint_{\Gamma }\left[u(M) \cdot \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \cdot \frac{\partial u(M)}{\partial n}\right]dS$$
+
+（2）当 $M_0$在 $ \Omega $ 外时，
+$$
+\iiint_{\Omega}\left(u \cdot \Delta \frac{1}{r}-\frac{1}{r} \cdot \Delta u\right) d \Omega=\iint_{\Gamma}\left(u \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \cdot \frac{\partial u}{\partial n}\right) d S=0 \text {. 得证 }
+$$
+(3) 当$M_0$在 $ \Gamma $ 上时, 
+
+作一个半球域$B_{\varepsilon}$,其中$M_0$为中心，以充分小正数$\varepsilon$为半径，记该半球面为$A_{\varepsilon}$,
+
+则在 $ \Omega \backslash B_{\varepsilon} $内$ \Delta u=0, \Delta \frac{1}{r}=0 $.
+在球面 $ A_{\varepsilon} $上, $$\frac{\partial}{\partial n}\left(\frac{1}{r}\right)=-\frac{\partial}{\partial r}\left(\frac{1}{r}\right)=\frac{1}{r^{2}}=\frac{1}{\varepsilon^{2}} $$
+从而 $$ \iint_{A_{\varepsilon}} u \frac{\partial}{\partial n}\left(\frac{1}{r}\right) d S=\frac{1}{\varepsilon^{2}} \iint_{A_{\varepsilon}} u d S=2 \pi \bar{u} $$
+同理 $$ \iint_{A_{\varepsilon}} \frac{1}{r} \cdot \frac{\partial u}{\partial n} d S=\frac{1}{\varepsilon} \cdot \iint_{A_{\varepsilon}} \frac{\partial u}{\partial n} d S=2 \pi \varepsilon \overline{\left(\frac{\partial u}{\partial n}\right)} $$
+同(1)知 $$\iint_{\Gamma\cup  A_{\varepsilon}}\left(u \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \frac{\partial u}{\partial n}\right) d S=0 $$
+
+$$
+\iint_{\Gamma}\left(u \frac{\partial}{\partial n}\left(\frac{1}{r}\right)-\frac{1}{r} \frac{\partial u}{\partial n}\right) d S+2 \pi \bar{u}-2 \pi \varepsilon \cdot\left(\frac{\overline{\partial n}}{\partial n}\right)=0 \text {. } 
+$$
+$$
+\text { 令 } \varepsilon \rightarrow 0 \text {, 则 }-\iint_{\Gamma}\left(u \cdot \frac{\partial}{\partial n}(\frac 1 r)-\frac{1}{r} \cdot \frac{\partial u}{\partial n}\right) d S=2 \pi u\left(M_{0}\right) \text {. 得证. }
+$$
+补充：
+$$ \begin{aligned} \frac{\partial}{\partial n}\left(\frac{1}{r}\right) & =\frac{\partial}{\partial x}\left(\frac{1}{r}\right) \cos \alpha+\frac{\partial}{\partial y}(\frac 1 r) \cos \beta+\frac{\partial}{\partial z}\left(\frac{1}{r}\right) \cos \gamma \\ & =-\frac{\left(x-x_{0}\right) \cos \alpha+\left(y-y_{0}\right) \cos \beta+\left(z-z_{0}\right) \cos \gamma}{\left[\left(x-x_{0}\right)^{2}+\left(y-y_{0}\right)^{2}+\left(z-z_{0}\right)^{2}\right]^{\frac{3}{2}}} \\ & =-\frac{\left(x-x_{0}\right) \cos \alpha+\left(y-y_{0}\right) \cos \beta+\left(z-z_{0}\right) \cos \gamma}{r^{3}} \\ & =\frac{1}{r^{2}}\left[-\frac{\left(x-x_{0}\right)}{r} \cos \alpha-\frac{\left(y-y_{0}\right)}{r} \cos \beta-\frac{\left(z-z_{0}\right)}{r} \cos \gamma\right] \\ & =\frac{1}{r^{2}}\left(\cos ^{2} \alpha+\cos ^{2} \beta+\cos ^{2} \gamma\right) \\ & =\frac{1}{r^{2}}=\frac{1}{\varepsilon^{2}}\end{aligned} $$
+\end{solution}
+\end{questions}
+
+\subsection{二阶方程的特征值问题}
+下面列出二阶方程的特征值问题
+$$
+\left\{\begin{array}{l}
+X^{\prime \prime}+\lambda X=0,0<x<l, \\
+x=0 \text { 及 } x=l \text { 处的边界条件 }
+\end{array}\right.
+$$
+
+在不同边界条件下的特征值和特征函数:\\
+(1) 边界条件是 $ X(0)=X(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{n \pi}{l}\right)^{2} $, 特征函数 $ X_{n}(x)=\sin \frac{n \pi x}{l} $;\\
+(2) 边界条件是 $ X(0)=X^{\prime}(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{(2 n-1) \pi}{2 l}\right)^{2} $, 特征函数 $ X_{n}(x)= $ $ \sin \frac{(2 n-1) \pi}{2 l} x $;\\
+(3) 边界条件是 $ X^{\prime}(0)=X(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{(2 n-1) \pi}{2 l}\right)^{2} $, 特征函数 $ X_{n}(x)= $ $ \cos \frac{(2 n-1) \pi}{2 l} x $;\\
+(4) 边界条件是 $ X^{\prime}(0)=X^{\prime}(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{n \pi}{l}\right)^{2} $, 特征函数 $ X_{n}(x)= $ $ \cos \frac{n \pi x}{l} $;\\
+\\(5) 边界条件是 $ X(0)=X^{\prime}(l)+\sigma X(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{\gamma_{n}}{l}\right)^{2} $, 特征函数 $ X_{n}(x)= $ $ \sin \frac{\gamma_{n} x}{l} $, 其中 $ \gamma_{n} $ 是方程 $ \tan \gamma=-\frac{\gamma}{\sigma l} $ 的第 $ n $ 个正根;
+\\(6) 边界条件是 $ X^{\prime}(0)=X^{\prime}(l)+\sigma X(l)=0 $ 时, 特征值 $ \lambda_{n}=\left(\frac{\gamma_{n}}{l}\right)^{2} $, 特征函数 $ X_{n}(x)= $ $ \cos \frac{\gamma_{n} x}{l} $, 其中 $ \gamma_{n} $ 是方程 $ \cot \gamma=\frac{\gamma}{\sigma l} $ 的第 $ n $ 个正根;
+
+\subsection{积化和差、和差化积公式}
+$$
+\left\{\begin{array}{l}
+\cos \alpha \cos \beta=\frac{1}{2}[\cos (\alpha+\beta)+\cos (\alpha-\beta)] \\
+\sin \alpha \sin \beta=-\frac{1}{2}[\cos (\alpha+\beta)-\cos (\alpha-\beta)] \\
+\sin \alpha \cos \beta=\frac{1}{2}[\sin (\alpha+\beta)+\sin (\alpha-\beta)] \\
+\cos \alpha \sin \beta=\frac{1}{2}[\sin (\alpha+\beta)-\sin (\alpha-\beta)]
+\end{array}\right.
+$$
+$$
+\left\{\begin{array}{l}
+\sin \alpha+\sin \beta=2 \sin \frac{\alpha+\beta}{2} \cos \frac{\alpha-\beta}{2} \\
+\sin \alpha-\sin \beta=2 \cos \frac{\alpha+\beta}{2} \sin \frac{\alpha-\beta}{2} \\
+\cos \alpha+\cos \beta=2 \cos \frac{\alpha+\beta}{2} \cos \frac{\alpha-\beta}{2} \\
+\cos \alpha-\cos \beta=-2 \sin \frac{\alpha+\beta}{2} \sin \frac{\alpha-\beta}{2}
+\end{array}\right.
+$$

@@ -1,0 +1,146 @@
+\section{其他题}
+\begin{questions}
+\question{
+长为 $\pi$ 的两端固定的弦自由振动，如果初始位移为 $ x \sin 2 x $, 初始速度为 $ \cos 2 x $ ，则其定解条件是
+}
+\begin{solution}
+    问题描述：我们有一根长度为 $\pi$ 的弦，两端固定，它在时间 $t$ 和位置 $x$ 上的振动用函数 $u(x, t)$ 来表示。这个振动满足波动方程 $u_{tt} = a^2 u_{xx}$，其中 $a$ 是一个正常数。在 $t = 0$ 时刻，弦的初始位移是 $x\sin(2x)$，初始速度是 $\cos(2x)$。
+
+定解条件：定解条件规定了问题的边界和初始状态：\\
+    弦的两端在任何时刻都保持固定：$u(0, t) = u(\pi, t) = 0$，这表示弦的两端被固定住.\\
+    初始时刻 $t = 0$ 时，弦的位移是 $x\sin(2x)$：$u(x, 0) = x\sin(2x)$.\\
+    初始时刻 $t = 0$ 时，弦的速度是 $\cos(2x)$：$u_t(x, 0) = \cos(2x)$.
+
+    $$\left\{\begin{array}{l}u_{t t}=a^{2} u_{x x} \quad 0< x< \pi, t>0 . \\ u(x, 0)=x \sin 2 x, u_{t}(x, 0)=\cos 2 x \\ u(0, t)=u(\pi, t)=0 .\end{array}\right. $$
+\end{solution}
+
+\question{
+已知边值问题 $\left\{\begin{array}{l}X^{\prime \prime}(x)+\lambda X(x)=0 \\ X^{\prime}(0)=X(\pi)=0,\end{array}\right.$
+则其固有函数 $ X_{k}(x)= $
+}
+    \begin{solution}
+        分三种情况讨论：
+
+$(1)$ 当 $ \lambda<0 $ 时, $$X(x)=c_{1} e^{\sqrt{-\lambda} x}+c_{2} e^{-\sqrt{-\lambda} \cdot x} $$
+
+代入边值条件有 
+$$\left\{\begin{array}{ll}c_{1} e^{\sqrt{-\lambda} \pi}+c_{2} e^{-\sqrt{\lambda} \pi}=0 . &  \\ c_{1} \sqrt{-\lambda}-c_{2} \sqrt{-\lambda}=0 .\end{array}\right. $$
+$\Rightarrow c_{1}=c_{2}=0 .$从而 $ X(x) \equiv 0. $
+
+$(2)$ 当 $ \lambda=0 $ 时, $ X(x)=c_{1} x+c_{2} $
+
+代入边值条件 
+$$ \left\{\begin{array}{l}c^{\pi+} c_{2}=0 \\ c_{1}=0 .\end{array} \Rightarrow c_{1}=c_{2}=0\right. $$ 
+从而 $ X(x) \equiv 0 $
+
+$(3)$ 当 $ \lambda>0 $ 时 $ X(x)=c_{1} \cos \sqrt{\lambda} x+c_{2} \sin \sqrt{\lambda} x $
+
+代入边值条件 
+$$ \left\{\begin{array}{l}c_{1} \cos \sqrt{\lambda} \pi+c_{2} \sin \sqrt{\lambda} \pi=0 \\ c_{2} \sqrt{\lambda}=0 .\end{array}\right. $$
+$$\Rightarrow \lambda=\lambda_{k}=\left(k+\frac{1}{2}\right)^{2} ,k=0,1,2 \ldots$$
+因此 $ X_{k}(x)=C_{k} \cos \left(k+\frac{1}{2}\right) x \quad k=0,1,2 $
+    \end{solution}
+
+    \question{
+    求问题 $\left\{\begin{array}{l}\frac{\partial^{2} u}{\partial t^{2}}=a^{2} \frac{\partial^{2} u}{\partial x^{2}} \\ u(x, 0)=\sin 2 x\\\left.\frac{\partial u}{\partial t}\right|_{t=0}=3 x^{2}\end{array}\right.$ 的解.
+    }
+    \begin{solution}
+        对于初值问题 
+$$ \left\{\begin{array}{l}\frac{\partial^{2} u}{\partial t^{2}}-a^{2} \frac{a^{2} u}{\partial x^{2}}=0 \\ u(x, 0)=\varphi(x), u_{t}(x, 0)=\psi(x)\end{array}\right. $$
+根据达朗贝尔公式，其解为 
+$$ u(x, t)=\frac{1}{2}[\varphi(x-a t)+\varphi(x+a t)]+\frac{1}{2 a} \int_{x-a t}^{x+a t} \psi(\xi) d \xi $$
+代入公式之中，因此上述问题的解为：
+$$\begin{aligned}
+u(x, t)&=\frac{1}{2}[\sin (2 x-2 a t)+\sin (2 x+2 a t)]  +\frac{1}{2 a} \int_{x-a t}^{x+a t} 3 \xi^{2} d \xi\\&=\frac{1}{2}[\sin (2 x-2 a t)+\sin (2 x+2 a t)]+a^{2} t^{3}+3 x^{2} t \end{aligned}$$
+
+如果公式不记得可以自行推导：（下面我来推导一遍）
+
+一维齐次波动方程的通解是 $ u(x, t)=F(x-a t)+G(x+a t) $
+由初始条件 $ t=0 $ 时 $ u=\sin 2 x, \frac{\partial u}{\partial t}=3 x^{2} $
+则有 
+$$ \left\{\begin{array}{l}F(x)+G(x)=\sin 2 x \\ -a F^{\prime}(x)+a G^{\prime}(x)=3 x^{2}\end{array}\right. $$
+于是 $ -F^{\prime}(x)+G^{\prime}(x)=\frac{3 x^{2}}{a} $ 两边积分得 $ -F(x)+G(x)=\frac{x^{3}}{a}+c $
+$$
+\begin{aligned}
+\Rightarrow \quad F(x) & =\frac{1}{2} \sin 2 x-\frac{1}{2 a} \cdot x^{3}-\frac{c}{2} \\
+G(x) & =\frac{1}{2} \sin 2 x+\frac{1}{2 a} \cdot x^{3}+\frac{c}{2}
+\end{aligned}
+$$
+因此
+$$
+\begin{aligned}
+u(x, t) & =F(x-a t)+G(x+a t) \\
+& =\frac{1}{2} \sin (2 x-2 a t)-\frac{1}{2 a}(x-a t)^{3}-\frac{c}{2} \\
+& +\frac{1}{2} \sin (2 x+2 a t)+\frac{1}{2 a}(x+a t)^{3}+\frac{c}{2} \\
+& =\frac{1}{2}[\sin (2 x-2 a t)+\sin (2 x+2 a t)] \\
+& +a^{2} t^{3}+3 x^{2} t
+\end{aligned}
+$$
+和上面答案一致.
+    \end{solution}
+
+\question{
+用分离变量法解下列混合问题
+$$
+\left\{\begin{array}{l}
+\frac{\partial^{2} u}{\partial t^{2}}=a^{2} \frac{\partial^2 u}{\partial x^{2}} \\
+u(0, t)=u(\pi, t)=0 \\
+u(x, 0)=2 x(\pi-x) \\
+u_{t}(x, 0)=3 \sin 2 x
+\end{array}\right.
+$$
+}
+    \begin{solution}
+        $$
+\text { 令 } u(x, t)=X(x) \cdot T(t), \quad \text { 则 }\left\{\begin{array}{l}
+X^{\prime \prime}(x)+\lambda X(x)=0 \\
+T^{\prime \prime}(t)+\lambda a^{2} T(t)=0
+\end{array}\right.
+$$
+由边界条件 $ u(0, t)=u(\pi, t)=0 $ 知 $ x(0) T(t)=x(\pi) T(t)=0 $ 由于 $ T(t) \neq 0 $. 则 $ x(0)=x(\pi)=0 $. 所以 
+$$\left\{\begin{array}{l}x^{\prime \prime}(x)+\lambda x(x)=0 \\ x(0)=x(\pi)=0\end{array}\right. $$ 
+经讨论知 $ \lambda>0 $ 时有非零解.
+$$
+X(x)=c_{1} \cos \sqrt{\lambda} x+c_{2} \sin \sqrt{\lambda} x
+$$
+代入边界条件有 
+$$ \left\{\begin{array}{l}c_{1}=0 \\ c_{1} \cos \sqrt{\lambda} \pi+c_{2} \sin \sqrt{\lambda} \pi=0\end{array} \Rightarrow \lambda=\lambda_{k}^{2}=k^{2}, k=1,2 \cdots\right. $$
+$$
+\text { 因此 } X(x)=C_{k} \sin k x \quad k=1,2, \cdots
+$$
+将 $ \lambda_{k} $ 代 $ \lambda T^{\prime \prime}(t)+\lambda a^{2} T(t)=0 $ 中可得其通解为
+$$
+T_{k}(t)=a_{k} \cos k a t+b_{k} \sin k a t . k=1,2 \cdots
+$$
+则 
+$$ u_{k}(x, t)=X_{k}(x) T_{k}(t)=\left(A_{k} \cos k a t+B_{k} \sin k a t\right) \sin k x $$ 
+由叠加原理得 
+$$ u(x, t)=\sum_{k=1}^{\infty}\left(A_{k} \cos k a t+B_{k} \sin k a t\right) \sin k x $$
+. 由于 
+$$ \left\{\begin{array}{l}u(x, 0)=\sum\limits_{k=1}^{\infty} A_{k} \sin k x=2 x(\pi-x) \\ u_{t}(x, 0)=\sum\limits_{k=1}^{\infty} k a B_{k} \sin k x=3 \sin 2 x\end{array}\right. $$
+
+$$
+\begin{aligned}
+A_{k} & =\frac{2}{\pi} \int_{0}^{\pi} 2 \xi(\pi-\xi) \sin k \xi d \xi \\
+& =\frac{4}{k \pi} \int_{0}^{\pi}\left(\xi^{2}-\pi \xi\right) \cdot d(\cos k \xi) \\
+& =\frac{4}{k \pi}\left[\left.\left(\xi^{2}-\pi \xi\right) \cos k \xi\right|_{0} ^{\pi}-\int_{0}^{\pi}(2 \xi-\pi) \cdot \cos k \xi d \xi\right] \\
+& =\frac{4}{k \pi}\left[-\frac{1}{k} \int_{0}^{\pi}(2 \xi-\pi) d(\sin k \xi)\right] \\
+& =-\frac{4}{k^{2} \pi}\left[\left.(2 \xi-\pi) \sin k \xi\right|_{0} ^{\pi}-2 \int_{0}^{\pi} \sin k \xi d \xi\right] \\
+& =\frac{8}{k^{2} \pi} \int_{0}^{\pi} \sin k \xi d \xi=\frac{8}{k^{3} \pi}\left(-\left.\cos k \xi\right|_{0} ^{\pi}\right) \\
+& =\frac{8}{k^{3} \pi}\left[1-(-1)^{k}\right]
+\end{aligned}
+$$
+$$
+B_{k}=\frac{2}{k \pi a} \int_{0}^{\pi} 3 \sin 2 \xi \sin k \xi d \xi=\left\{\begin{array}{ll}
+0 & k \neq 2 \\
+\frac{3}{2 a}, & k=2
+\end{array}\right.
+$$
+因此
+$$ u(x, t)=\frac{3}{2 a} \sin 2 a t \sin 2 x+\sum_{k=1}^{\infty} \frac{8\left[1-(-1)^{k}\right]}{k^{3} \pi} \cos k at\cdot\sin k x $$
+    \end{solution}
+\end{questions}
+
+
+
+

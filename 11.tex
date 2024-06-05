@@ -1,0 +1,22 @@
+\begin{questions}
+\question{ 试用静电源像法导出二维调和方程在半平面上的
+狄利克雷问题:
+$
+\left\{\begin{array}{l}
+\Delta u=u_{x x}+u_{y y}=0 , y>0\\
+\left.u\right|_{y=0}=f(x)
+\end{array}\right. \text { 的解 }
+$
+}
+\begin{solution}
+设 $ M_{0}\left(x_{0}, y_{0}\right) $ 是上半平面内一点，关于直线 $ y=0 $ 的对称点为 $ M_{1}\left(x_{0},-y_{0}\right) $在点$M_0$和点 $ M_1 $ 处分别放置一单位正电荷和一单位负电荷，于是可得到格林函数为 
+$$ G\left(M, M_{0}\right)=\frac{1}{2 \pi}\left(\ln\frac{1}{r_{M M_{0}}}-\ln\frac{1}{r_{M M_{1}}}\right)=\frac{1}{2 \pi} \ln \frac{\sqrt{\left(x-x_{0}\right)^{2}+\left(y+y_{0}\right)^{2}}}{\sqrt{\left(x-x_{0}\right)^{2}+\left(y-y_{0}\right)^{2}}}  $$
+计算 $ G $ 在 $ y=0 $ 处的单位外法向导数 
+$$ \left.\frac{\partial G}{\partial n}\right|_{y=0}=-\left.\frac{\partial G}{\partial y}\right|_{y=0}=-\frac{1}{\pi} \frac{y_{0}}{\left(x-x_{0}\right)^{2}+y_{0}^{2}} $$
+
+求解 $ u $ 得 $$ u\left(x_{0}, y_{0}\right)=-\int_{y=0} f(M) \cdot \frac{\partial G}{\partial n} d s=\frac{1}{\pi} \int_{-\infty}^{+\infty} \frac{y_{0} f(x)}{\left(x-x_{0}\right)^{2}+y_{0}^{2}} d x $$
+\end{solution}
+
+
+
+\end{questions}

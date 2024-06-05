@@ -1,0 +1,87 @@
+\begin{questions}
+\question{ 求解波动方程的初值问题
+$$
+\left\{\begin{array}{l}
+\frac{\partial^{2} u}{\partial t^{2}}-\frac{\partial^{2} u}{\partial x^{2}}=t \sin x \\
+\left.u\right|_{t=0}=0,\left.\frac{\partial u}{\partial t}\right|_{t=0}=\sin x
+\end{array}\right.
+$$
+}
+ 
+
+\begin{solution}
+上述定解问题中的方程和定解条件都是线性的， 所以根据叠加原理，将上述定解问题分解以下两个定解问题
+$$
+\begin{array}{l}
+\text { (1) }\left\{\begin{array}{l}
+\frac{\partial^{2} u_{1}}{\partial t^{2}}-\frac{\partial^{2} u_{1}}{\partial x^{2}}=0 . \\
+\left.u_{1}\right|_{t=0}=0,\left.\frac{\partial u_{1}}{\partial t}\right|_{t=0}=\sin x
+\end{array}\right. \\
+\text { (2) }\left\{\begin{array}{l}
+\frac{\partial^{2} u_{2}}{\partial t^{2}}-\frac{\partial^{2} u_{2}}{\partial x^{2}}=t \sin x \\
+\left.u_{2}\right|_{t=0}=0,\left.\frac{\partial u_{2}}{\partial t}\right|_{t=0}=0
+\end{array}\right. \\
+\text { 令 } u(x, t)=u_{1}(x, t)+u_{2}(x, t)
+\end{array}
+$$
+对于问题(1)，我们利用达朗贝尔公式求解。
+$$
+\begin{aligned}
+u_{1}(x, t) & =\frac{1}{2}[u(x+a t)+u(x-a t)]+\frac{1}{2 a} \int_{x-a t}^{x+a t} \psi(\xi) d \xi \\
+& =\frac{1}{2} \int_{x-t}^{x+t} \sin \xi d \xi=\left.\frac{1}{2 a} \cdot(-\cos \xi)\right|_{x-t} ^{x+t} \\
+& =-\frac{1}{2}[\cos (x+t)-\cos (x-t)]=\sin x \cdot \sin t \Leftarrow \text { 积化和差公式 }
+\end{aligned}
+$$
+对于问题(2), 我们利用齐次化原理求解.
+
+由齐次化原理知 $ u_{2}(x, t)=\int _{0}^{t} w(x, t, \tau) d \tau $
+其中 $ \omega(x, t, \tau) $ 是 $\text { (3) } \left\{\begin{array}{l}\frac{\partial^{2} \omega}{\partial t^{2}}=\frac{\partial^{2} \omega}{\partial x^{2}} , t>\tau \\ \left.\omega\right|_{t=\tau}=0 \\ \left.\omega_{t}\right|_{t=\tau}=f(x, \tau)=\tau \sin x\end{array}\right. $ 的解.
+
+令 $ y=t-\tau $
+则定解问题 (3) 化为
+$
+\left\{\begin{array}{l}
+\frac{\partial^{2} w}{\partial y^{2}}=\frac{\partial^{2} w}{\partial y^{2}}, y>0 . \\
+\left.w\right|_{y=0}=0 \\
+\left.w_{t}\right|_{y=0}=\tau \sin x
+\end{array}\right.
+$
+
+由达朗贝尔公式得
+$$
+w(x, t, \tau)=\frac{1}{2} \int_{x-y}^{x+y} \tau \sin \xi d \xi=\frac{1}{2} \int_{x-(t-\tau)}^{x+t-\tau} \tau \sin \xi d \xi
+$$
+则$$ u_{2}(x, t)=\frac{1}{2} \int_{0}^{t} \int_{x-(t-\tau)}^{x+t-\tau} \tau \sin \xi d \xi d \tau $$
+$$
+\begin{array}{l}
+=-\frac{1}{2} \int_{0}^{t} \tau[\cos (x+t-\tau)-\cos (x-t+\tau)] d \tau 
+=\int_{0}^{t} \tau \sin x \cdot \sin (t-\tau) d \tau \\
+=\sin x \cdot \int_{0}^{t} \tau \cdot \sin (t-\tau) d \tau 
+=\sin x \cdot \int_{0}^{t} \tau \cdot d \cos (t-\tau) \\
+=\sin x \cdot\left[\left.\tau \cdot \cos (t-\tau)\right|_{0} ^{t}-\int_{0}^{t} \cos (t-\tau) d \tau\right]
+=\sin x \cdot\left[t+\left.\sin (t-\tau)\right|_{0} ^{t}\right] =\sin x \cdot(t-\sin t)
+\end{array}
+$$
+因此
+$$
+\begin{aligned}
+u(x, t) & =u_{1}(x, t)+u_{2}(x, t) \\
+& =\sin x \cdot \sin t+\sin x \cdot(t-\sin t) \\
+& =t \sin x .
+\end{aligned}
+$$
+
+
+\textbf{直接利用一维非齐次波动方程的初值问题的解。}
+$$
+\begin{aligned}
+u(x, t) & =\frac{1}{2 a} \int_{x-a t}^{x+a t} \sin \xi d \xi+\frac{1}{2 a} \int_{0}^{t} \int_{x-a(t-\tau)}^{x+a(t-\tau)} \tau \sin \xi d \xi d \tau \\
+& =\frac{1}{2}[-\cos (x+t)+\cos (x-t)] \\
+& +\frac{1}{2 a} \int_{0}^{t}[-\cos (x+t-\tau)+\cos (x-t+\tau)] d \tau \\
+& =\sin x \cdot \sin t+\int_{0}^{t} \tau \sin x \cdot \sin (t-\tau) d \tau \\
+& =\sin x \cdot \sin t+\sin x \cdot(t-\sin t) \\
+& =t \sin x .
+\end{aligned}
+$$
+\end{solution}
+\end{questions}

@@ -1,0 +1,226 @@
+\begin{questions}
+\question{ 
+寻找波动方程 $ u_{t t}-a^{2} u_{x x}=0 $ 如下形式的解: $ u(x, t)=f\left(\frac{x}{t}\right) $
+}
+\begin{solution}
+由$u=f\left(\frac{x}{t}\right) $知
+$ u_{x}=\frac{1}{t} \cdot f^{\prime}\left(\frac{x}{t}\right), u_{t}=-\frac{x}{t^{2}} \cdot f^{\prime}\left(\frac{x}{t}\right)$. 
+
+进而有 $ u_{x x}=\frac{1}{t^{2}} f^{\prime \prime}\left(\frac{x}{t}\right), u_{t t}=2 x \cdot t^{-3} f^{\prime}\left(\frac{x}{t}\right)+x^{2} \cdot t^{-4} \cdot f^{\prime \prime}\left(\frac{x}{t}\right) $.
+
+代入$ u_{t t}-a^{2} u_{x x}=0$  中得 $\left(x^{2}-a^{2} t^{2}\right) f^{\prime \prime}\left(\frac{x}{t}\right)+2 x t f^{\prime}\left(\frac{x}{t}\right)=0 \text {. }$
+
+不妨设 $ \frac{x}{t}=m $, 则 $ x=m t $
+则有 $ \left(m^{2}-a^{2}\right) t^{2} \cdot f^{\prime \prime}(m)+2 m t^{2} f^{\prime}(m)=0 $.
+
+即 $ \left(m^{2}-a^{2}\right) f^{\prime \prime}(m)+2 m f^{\prime}(m)=0 $.
+
+令 $ f^{\prime}(m)=h(m) $
+进而有 $ \left(m^{2}-a^{2}\right) \cdot h^{\prime}(m)+2 m \cdot h(m)=0 $.
+
+注意到，由凑微分的思想（或者积分因子法或者常数变易法求解$h(m)$）
+将上式化为 $$ \frac{d}{d m}\left[\left(m^{2}-a^{2}\right) \cdot h(m)\right]=0 $$
+通过积分得 $ \left(m^{2}-a^{2}\right) \cdot h(m)=c_{1} $
+则有 $ h(m)=\frac{c_{1}}{m^{2}-a^{2}} $
+$$
+\Longrightarrow f^{\prime}(m)=h(m)  =\frac{c_{1}}{m^{2}-a^{2}} $$
+ 积分得 
+$$f(m)  =c_{1} \int_{0}^{m} \frac{d s}{s^{2}-a^{2}}+c_{2}  =\left.c_{1}\left(\frac{1}{2 a} \ln \left|\frac{s-a}{s+a}\right|\right)\right|_{0} ^{m}+c_{2} 
+=\frac{c_1}{2 a} \ln \frac{m-a}{m+a}+c_{2}$$
+因此 $$ f\left(\frac{x}{t}\right)=\frac{c_{1}}{2 a} \ln {\frac{\frac{x}{t}-a}{\frac{x}{t}+a}}+c_{2} 
+=\frac{c_{1}}{2 a} \ln \frac{x-a t}{x+a t}+c_{2}
+$$
+故 $ u(x, t)=f\left(\frac{x}{t}\right)=\frac{c_{1}}{2 a} \ln \frac{x-a t}{x+a t}+c_{2} $. 其中 $c_1,c_2$ 为常数.
+\end{solution}
+\question{
+考察如下方程
+$
+\frac{\partial u}{\partial t}=k \cdot \frac{\partial^{2} u}{\partial x^{2}}-u, 0< x < L , t>0
+$
+试作适当变换，化该方程为热传导方程
+}
+\begin{solution}
+
+设$v(x, t)=e^{t} \cdot u(x, t) $, 则  $\frac{\partial v}{\partial x}=e^{t} \cdot \frac{\partial u}{\partial x}, \quad \frac{\partial^{2} v}{\partial x^{2}}=e^{t} \cdot \frac{\partial^{2} u}{\partial x^{2}}$, \quad $\frac{\partial v}{\partial t}=e^{t} \cdot u+e^{t} \cdot \frac{\partial u}{\partial t}$
+$$\Rightarrow \frac{\partial u}{\partial x}=e^{-t} \cdot \frac{\partial v}{\partial x} ,\quad  \frac{\partial^{2} u}{\partial x^{2}}=e^{-t} \cdot \frac{\partial^{2} v}{\partial x^{2}} ,\quad \frac{\partial u}{\partial t}+u=e^{-t} \frac{\partial v}{\partial t} $$
+代入$\frac{\partial u}{\partial t}=k \frac{\partial^{2} u}{\partial x^{2}}-u $中有$e^{-t} \cdot \frac{\partial v}{\partial t}=k \cdot e^{-t} \cdot \frac{\partial^{2} v}{\partial x^{2}}$
+$$
+\Rightarrow \frac{\partial v}{\partial t}=k  \frac{\partial^{2} v}{\partial x^{2}}
+$$
+即一维热传导方程 $ \frac{\partial v}{\partial t}=a^{2} \frac{\partial^{2} v}{\partial x^{2}} $
+,其中 $ a=\sqrt{k} >0 $
+\end{solution}
+\question{
+求解如下方程的初边值问题
+$$
+\left\{\begin{array}{ll}
+\frac{\partial u}{\partial t}=\frac{\partial^{2} u}{\partial x^{2}},  0< x < L, t>0 \\
+\left.\frac{\partial u}{\partial x}\right|_{x=0}=0 , \left.\left(\frac{\partial u}{\partial x}+\sigma \frac{\partial u}{\partial t}\right)\right|_{x=L}=0 ,\quad t>0 .\\
+u(x, 0)=f(x), \quad 0<x<L \\
+\end{array}\right. 
+$$
+并讨论当 $ t \rightarrow+\infty $ 时 $ u(x, t) $ 的性态
+}
+\begin{solution}
+采用分离变量法求解: 设 $ u(x, t)=X(x) \cdot T(t) $ 代入方程得 $ \frac{T^{\prime}(t)}{ T(t)}=\frac{X^{\prime \prime}(x)}{X(x)}=-\lambda $ 
+
+从而得到关于 $ T(t) , X(x) $ 的常微分方程
+$\left\{\begin{array}{l}
+T^{\prime}(t)+\lambda  T(t)=0 \\
+X^{\prime \prime}(x)+\lambda X(x)=0
+\end{array}\right.$
+
+由边界条件，得 $ X'(0)=0 , \quad X^{\prime}(L)T(t)+\sigma X(L)T'(t)=0 $. 下面求解该特征值问题
+
+ 经过讨论只有$ \lambda>0 $ 有非平凡解，
+
+解方程 $ T^{\prime}(t)+\lambda T(t)=0 $ 得 $ T(t)=A e^{-\lambda t} $
+
+解方程 $ X^{\prime \prime}(x)+\lambda X(x)=0 $. 得 $ X(x)=B \cos \sqrt{\lambda} x+C \sin \sqrt{\lambda} x $.
+
+由于 $ X^{\prime}(0)=0 \text {, 则 } C \sqrt{\lambda}=0 $, 即 $ C=0$
+
+再由 $ X^{\prime}(L) T(t)+\sigma X(L) \cdot T^{\prime}(t)=0 $ 有
+$$ -B \sqrt{\lambda} \sin \sqrt{\lambda} L \cdot A \cdot e^{-\lambda t}+\sigma \cdot B \cos \sqrt{\lambda} L \cdot\left(-A \lambda e^{-\lambda t}\right)=0 $$
+从而得 $ \sqrt{\lambda} \sin \sqrt{\lambda} L+\sigma \lambda\cos \sqrt{\lambda} L=0 $
+$$
+\Rightarrow \quad \tan \sqrt{\lambda} \cdot L=-{\sigma}{\sqrt{\lambda}}
+$$
+
+令 $ v=\sqrt{\lambda} \cdot L $ 则有 $ \tan v=-\frac{\sigma v}{L} $. 
+方程 $ \tan v=-\frac{\sigma v}{L} $ 的根可以看作正切曲线 $ y_{1}=\tan v $ 与直线 $ y_{2}=-\frac{\sigma v}{L} $ 的交点的横坐标. 
+
+根据图象知它们的交点有无穷多个, 它们关于原点对称分布. 设方程的无穷多个正根依次为 
+$$ 0<v_{1}<v_{2}<\cdots<v_{k}<\cdots $$
+于是得边值问题的特征值 $ \lambda_{k}=\left(\frac{v_{k}}{L}\right)^{2} ， k=1,2 \ldots $ 相应的特征函数为： $$ X_{k}(x)=B_{k} \cos \sqrt{\lambda_{k}} x=B_{k} \cos \frac{v_{k}}{L} x $$
+同理 $$ T_{k}(t)=A_{k} e^{-\lambda_{k} t} $$ 于是得到一列可分离变量的特解
+$$
+u_{k}(x, t)=X_{k}(x) \cdot T_{k}(t)=D_{k} \cdot e^{-\lambda_{k} t} \cdot \cos \sqrt{\lambda_{k}} x
+$$
+其中 $ D_{k}=A_{k} \cdot B_{k} .\quad k=1,2, \ldots $
+
+由于方程和边界条件是齐次的，利用叠加原理。
+可设定理问题的解为
+$$
+u(x, t)=\sum_{k=1}^{\infty} u_{k}(x, t)=\sum_{k=1}^{\infty} D_{k} \cdot e^{-\lambda_{k} t} \cdot \cos \sqrt{\lambda_{k}} x
+$$
+由初始条件 $ u(x, 0)=f(x) $
+得 $$ f(x)=\sum_{k=1}^{\infty} D_{k} \cdot \cos \sqrt{\lambda}_{k} x $$
+为求得 $ D_{k} $ ，对上式两端乘以 $ \cos \sqrt{\lambda_{k}} x $ 并利用正交性,则有
+$$D_{k}  =\frac{\int_{0}^{L} f(x) \cos \sqrt{\lambda_{k}} x d x}{\int_{0}^{L} \cos ^{2} \sqrt{\lambda_{k}} x d x} $$
+ 令  $M_{k}  =\int_{0}^{L} \cos ^{2} \sqrt{\lambda_{k}} x d x$, 下面计算$M_{k}$
+$$\begin{aligned}
+ M_{k} & =\int_{0}^{L} \frac{1+\cos 2 \sqrt{\lambda_{k}} x}{2} d x  =\frac{L}{2}+\frac{\sin 2 \sqrt{\lambda_{k}} L}{4 \sqrt{\lambda_{k}}} \\
+& =\frac{L}{2}+\frac{1}{2 \sqrt{\lambda_{k}}} \cdot \frac{\tan \sqrt{\lambda_{k}} \cdot L}{1+\tan ^{2} \sqrt{\lambda k}^{2} L}  =\frac{L}{2}+\frac{1}{2 \frac{v_{k}}{L}} \cdot \frac{-\frac{\sigma v_k}{L}}{1+\left(\frac{\sigma v_k}{L}\right)^{2}} \\
+& =\frac{L}{2}-\frac{\sigma}{2\left(\lambda_{k}\sigma^{2}+1\right)}
+\end{aligned}
+$$
+故 $$ u(x, t)=\sum_{k=1}^{\infty} \frac{1}{M_{k}} \int_{0}^{L} f(\xi) \cos \sqrt{\lambda_{k}} \xi d \xi \cdot e^{-\lambda_{k} t} \cdot \cos \sqrt{\lambda_{k}} x $$
+
+显然对 $ \forall k $ 有 $ \left|D_{k}\right| \leqslant C_{1} $. ( $C_1 $为仅与$f$的最大模有关的常数)
+
+由 $ \lambda_{k} $ 所满足的估计式可知，当 $ k \rightarrow \infty $ 时  $ \lambda_{k}=O\left(k^{2}\right) $
+故有 $\sum\limits_{k=2}^{\infty} \frac{1}{\lambda_{k}-\lambda_{1}}<+\infty $
+
+另一方面，由指数函数的性质可知，
+ 当 $ t \geqslant 1 $ 时, 对 $ \forall k \geqslant 2 $ 有 $$ \left(\lambda_{k}-\lambda_{1}\right) e^{-\left(\lambda_{k}-\lambda_{1}\right) t} \leqslant\left(\lambda_{k}-\lambda_{1}\right) e^{-\left(\lambda_{k}-\lambda_{1}\right)} \leqslant C_{2} $$ 其中 $ C_{2} $ 为一个与 $k$ 无关的常数
+ 
+于是当 $ k \geqslant 1 $ 时, 对 $ \forall x \in[0, L] $ 成立:
+$$
+\begin{aligned}
+|u(x, t)| & \leqslant C_{1}\left(1+\sum_{k=2}^{\infty} e^{-\left(\lambda_{k}-\lambda_{1}\right) t}\right) e^{- \lambda_{1} t} \\
+& \leqslant C_{1}\left(1+\sum_{k=2}^{\infty}\left(\lambda_{k}-\lambda_{1}\right) e^{-\left(\lambda_{k}-\lambda_{1}\right) t} \cdot \frac{1}{\lambda_{k}-\lambda_{1}}\right) e^{- \lambda_{1} t} \\
+& \leqslant C_{1}\left(1+C_{2} \sum_{k=2}^{\infty} \frac{1}{\lambda_{k}-\lambda_{1}}\right) e^{- \lambda_{1} t} \\
+& \leqslant Ce^{- \lambda_{1} t}
+\end{aligned}
+$$
+故 $ t \rightarrow+\infty $ 时，对 $ \forall x \in[0, L] $. 有 $ |u(x, t)| \leqslant C e^{- \lambda_1 t} \rightarrow 0 $.
+
+其中 $C$ 为一个与解无关的正常数。
+\end{solution}
+
+\question{
+求解如下方程的初边值问题
+$$
+\left\{\begin{array}{ll}
+\frac{\partial u}{\partial t}=a^2\frac{\partial^{2} u}{\partial x^{2}},  0< x < L, t>0 \\
+\left. u\right|_{x=0}=0 , \left.\left(\frac{\partial u}{\partial x}+\sigma  u \right)\right|_{x=L}=0 ,\quad t>0 .\\
+u(x, 0)=f(x), \quad 0<x<L \\
+\end{array}\right. 
+$$
+并讨论当 $ t \rightarrow+\infty $ 时 $ u(x, t) $ 的性态
+}
+\begin{solution}
+采用分离变量法求解: 设 $ u(x, t)=X(x) \cdot T(t) $ 代入方程得 $ \frac{T^{\prime}(t)}{a^{2} T(t)}=\frac{x^{\prime \prime}(x)}{x(x)}=-\lambda $ 
+
+从而得到关于 $ T(t) , X(x) $ 的常微分方程
+$\left\{\begin{array}{l}
+T^{\prime}(t)+\lambda a^{2} T(t)=0 \\
+X^{\prime \prime}(x)+\lambda X(x)=0
+\end{array}\right.$
+
+由边界条件，得 $ X(0)=0 , \quad X^{\prime}(L)+\sigma X(L)=0 $. 下面求解该特征值问题
+
+(1) 当 $ \lambda \leqslant 0 $ 时, 边值问题 $ \left\{\begin{array}{l}X^{\prime \prime}(x)+\lambda X(x)=0 \\ X(0)=0, X^{\prime}(L)+\sigma X(L)=0\end{array}\right. $ 只有零解.
+
+(2) 当 $ \lambda>0 $ 时，方程的通解为 $ X(x)=A \cos \sqrt{\lambda} x+B \sin \sqrt{\lambda} x $.
+
+由边界条件 $ X(0)=0 $ 有 $ A=0 $. 再由 $ X^{\prime}(L)+\sigma X(L)=0 $
+得到 $$ B(\sqrt{\lambda} \cos \sqrt{\lambda} L+\sigma \sin \sqrt{\lambda} \cdot L)=0. $$
+为使 $ X(x) $ 为非平凡解， $\lambda$应满足 $ \sqrt{\lambda} \cos \sqrt{\lambda} \cdot L+\sigma \sin \sqrt{\lambda} L=0 $
+$\Rightarrow \tan \sqrt{\lambda} \cdot L=-\frac{\sqrt{\lambda}}{\sigma}$
+
+令 $ v=\sqrt{\lambda} \cdot L $, 则有 $ \tan v=-\frac{v}{\sigma L} $.
+
+方程 $ \tan v=v\left(-\frac{1}{\sigma L}\right) $ 的根可以看作正切曲线 $ y_{1}=\tan v $ 与直线 $ y_{2}=-\frac{v}{\sigma L} $ 的交点的横坐标.
+
+根据图像知它们的交点有无穷多个，它们关于原点对称分布. 设方程的无穷多个正根依次为 $$ 0<v_{1}<v_{2}<\cdots<v_{k}<\cdots $$ 
+于是得边值问题的特征值 $ \lambda_{k}=\left(\frac{v_{k}}{\sigma}\right)^{2}, k=1,2 \ldots $
+
+相应的特征函数 $ X_{k}(x)=B_{k} \cdot \sin \sqrt{\lambda}_{k} x=B_{k} \cdot \sin \frac{V_{k}}{\sigma} x $
+
+将 $ \lambda=\lambda_{k} $ 代入方程 $ T^{\prime}(t)+\lambda a^{2} T(t)=0 $
+得 $$T_{k}(t)=C_{k} e^{-a^{2} \lambda_{k} t},(k=1,2 \cdots) $$
+于是得到一列可分离变量的特解
+$$
+u_{k}(x, t)=X_{k}(x) \cdot T_{k}(t)=A_{k} e^{-a^{2} \lambda_{k} t} \cdot \sin \sqrt{\lambda_{k}} x
+$$
+其中 $ A_{k}=B_{k} C_{k} \quad k=1,2 \cdots $
+
+由于方程和边界条件是齐次的, 利用叠加原理. 可设定解问题
+的解为 $$ u(x, t)=\sum_{k=1}^{\infty} u_{k}(x, t)=\sum_{k=1}^{\infty} A_{k} e^{-a^{2} \lambda_{k} t} \cdot \sin \sqrt{\lambda_{k}} x $$
+由定解问题的初始条件 $ u(x, 0)=f(x) $
+得 $$ f(x)=\sum_{k=1}^{\infty} A_{k} \sin \sqrt{\lambda_{k}} \cdot x $$
+为求得 $ A_{k} $ ，对上式两端乘以 $ \sin \sqrt{\lambda_{k}} x $ 并利用正交性
+得 $$ A_{k}=\frac{\int_{0}^{L} f(x) \sin \sqrt{\lambda_{k}} x d x}{\int_{0}^{L} \sin ^{2} \sqrt{\lambda_{k}} x d x} $$
+$$
+\begin{aligned}
+\text { 令 } \quad M_{k} & =\int_{0}^{L} \sin ^{2} \sqrt{\lambda_{k}} x d x=\int_{0}^{L} \frac{1-\cos 2 \sqrt{\lambda}_{k} x}{2} d x \\
+& =\frac{L}{2}-\frac{\sin 2 \sqrt{\lambda_{k}} L}{4 \sqrt{\lambda_{k}}}=\frac{L}{2}-\frac{1}{2 \sqrt{\lambda_{k}}} \cdot \frac{\tan \sqrt{\lambda_{k}} L}{1+\tan ^{2} \sqrt{\lambda_{k}} L} \\
+& =\frac{L}{2}+\frac{\sigma}{2\left(\lambda_{k}+\sigma^{2}\right)}
+\end{aligned}
+$$
+故 $$ U(x, t)=\sum_{k=1}^{\infty} \frac{1}{M_{k}} \int_{0}^{L} f(\xi) \cdot \sin \sqrt{\lambda_{k}} \xi  d \xi \cdot e^{-a^{2} \lambda_{k} t} \sin \sqrt{\lambda_{k} x} $$
+
+显然对 $ \forall k $ 有 $ \left|A_{k}\right| \leqslant C_{1} $. ( $C_1 $为仅与$f$的最大模有关的常数)
+
+由 $ \lambda_{k} $ 所满足的估计式可知，当 $ k \rightarrow \infty $ 时  $ \lambda_{k}=O\left(k^{2}\right) $
+故有 $\sum\limits_{k=2}^{\infty} \frac{1}{\lambda_{k}-\lambda_{1}}<+\infty $
+
+另一方面，由指数函数的性质可知，
+ 当 $ t \geqslant 1 $ 时, 对 $ \forall k \geqslant 2 $ 有 $$ \left(\lambda_{k}-\lambda_{1}\right) e^{-a^{2}\left(\lambda_{k}-\lambda_{1}\right) t} \leqslant\left(\lambda_{k}-\lambda_{1}\right) e^{-a^{2}\left(\lambda_{k}-\lambda_{1}\right)} \leqslant C_{2} $$ 其中 $ C_{2} $ 为一个与 $k$ 无关的常数
+ 
+于是当 $ k \geqslant 1 $ 时, 对 $ \forall x \in[0, L] $ 成立:
+$$
+\begin{aligned}
+|u(x, t)| & \leqslant C_{1}\left(1+\sum_{k=2}^{\infty} e^{-a^{2}\left(\lambda_{k}-\lambda_{1}\right) t}\right) e^{-a^{2} \lambda_{1} t} \\
+& \leqslant C_{1}\left(1+\sum_{k=2}^{\infty}\left(\lambda_{k}-\lambda_{1}\right) e^{-a^{2}\left(\lambda_{k}-\lambda_{1}\right) t} \cdot \frac{1}{\lambda_{k}-\lambda_{1}}\right) e^{-a^{2} \lambda_{1} t} \\
+& \leqslant C_{1}\left(1+C_{2} \sum_{k=2}^{\infty} \frac{1}{\lambda_{k}-\lambda_{1}}\right) e^{-a^{2} \lambda_{1} t} \\
+& \leqslant Ce^{-a^{2} \lambda_{1} t}
+\end{aligned}
+$$
+故 $ t \rightarrow+\infty $ 时，对 $ \forall x \in[0, L] $. 有 $ |u(x, t)| \leqslant C e^{-a^{2} \lambda_1 t} \rightarrow 0 $.
+
+其中 $C$ 为一个与解无关的正常数。
+\end{solution}
+\end{questions}

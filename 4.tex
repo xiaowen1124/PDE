@@ -1,0 +1,183 @@
+\begin{questions}
+\question{ 用分离变量变量法求下列问题的解:
+$
+\left\{\begin{array}{l}
+\frac{\partial^{2} u}{\partial t^{2}}-a^{2} \cdot \frac{\partial^{2} u}{\partial x^{2}}=0 \\
+u(0, t)=0, \frac{\partial u}{\partial x}(l, t)=0 \\
+u(x, 0)=\frac{h}{l} \cdot x \\
+\frac{\partial u}{\partial t}(x, 0)=0 .
+\end{array}\right.
+$
+}
+ 
+
+\begin{solution}
+设定解问题有非零的变量分离解 $ u(x, t)=X(x) \cdot T(t) $,
+
+$
+\begin{array}{l}
+\text {则有} X(x) \cdot T^{\prime \prime}(t)-a^{2} \cdot X^{\prime \prime}(x) \cdot T(t)=0 ,  \\
+\text { 即 } \frac{T^{\prime \prime}(t)}{a^{2} T(t)}=\frac{X^{\prime \prime}(x)}{X(x)}=-\lambda.
+\end{array}
+$
+
+于是得到关于 $ T(t) $ 和 $ X(x) $ 的两个常微分方程
+$
+\begin{array}{l}
+T^{\prime \prime}(t)+\lambda a^{2} T(t)=0 \\
+X^{\prime \prime}(x)+\lambda X(x)=0
+\end{array},
+$
+
+代入边界条件得 $ X(0) \cdot T(t)=0,X'(l) \cdot T(t)=0 , $
+
+因为 $ T(t) \neq 0 $, 所以 $ X(0)=X^{\prime}(l)=0 $,
+
+通过上面的变量分离得到 $ X(x) $ 满足的边值问题是
+$$
+\left\{\begin{array}{l}
+X^{\prime \prime}(x)+\lambda X(x)=0 \\
+X(0)=0, X'(l)=0 
+\end{array}\right. ,
+$$
+
+我们考虑方程 $ X^{\prime \prime}(x)+\lambda X(x)=0 $, 下面对 $ \lambda $ 的取值分三种情况讨论:
+
+(1) 当 $ \lambda<0 $ 时，该方程的通解为
+$
+X(x)=c_{1} e^{\sqrt{-\lambda} x}+c_{2} e^{-\sqrt{-\lambda} \cdot x}
+$,
+
+代入边值条件得 $ \left\{\begin{array}{l}c_{1}+c_{2}=0 \\ c_{1}\sqrt{-\lambda} e^{\sqrt{-\lambda } \cdot l}+c_{2}\sqrt{-\lambda} e^{-\sqrt{-\lambda} \cdot l}=0\end{array}\right. $,
+
+由于 $ \left|\begin{array}{cc}1 & 1 \\ \sqrt{-\lambda}e^{\sqrt{-\lambda} \cdot l} & \sqrt{-\lambda}e^{-\sqrt{-\lambda} \cdot l}\end{array}\right| \neq 0 $, 所以该方程组有唯一的零解
+即 $ c_{1}=c_{2}=0 $ ，从而 $ X(x) \equiv 0 $ ，不符合非零解的要求.
+
+(2) 当 $ \lambda=0 $ 时，该方程的通解为 $ X(x)=C_{1} x+C_{2} $,
+
+代入边值条件得 $ \left\{\begin{array}{l}C_{2}=0 \\ C_{2}=0\end{array}\right. $,
+
+故 $ C_{1}=C_{2}=0 $ ，从而 $ X(x) \equiv 0 $ ，不符合非零解的要求.
+
+(3) 当 $ \lambda>0 $ 时, 该方程的通解为 $ X(x)=C_{1} \cos \sqrt{\lambda} x+C_{2} \sin \sqrt{\lambda} x $,
+
+代入到边值条件得 $ \left\{\begin{array}{l}C_{1}=0 \\ -C_{1} \sqrt{\lambda} \sin \sqrt{\lambda} \cdot l+C_{2} \sqrt{\lambda} \cos \sqrt{\lambda} \cdot l=0\end{array}\right. $
+$ \Rightarrow C_{2} \sqrt{\lambda} \cdot \cos \sqrt{\lambda} \cdot l=0 $. 
+
+要求 $ X(x) \neq 0 $, 则 $ C_{2} \neq 0 $.
+
+于是 $ \sqrt{\lambda} \cdot \cos \sqrt{\lambda} l=0 $, 即 $ \sqrt{\lambda} \cdot l=\frac{\pi}{2}+k \pi \Rightarrow \lambda=\lambda_{k}=\left(\frac{2 k+1}{2 l} \pi\right)^{2}, \quad k=0,1,2 \cdots $
+
+因此一族非零解 $ X_{k}(x)=C_{k} \cdot \sin \frac{2 k+1}{2 l} \pi x, k=0,1,2 \ldots $
+
+将 $ \lambda_{k}=\left(\frac{2 k+1}{2 l} \pi\right)^{2} (k=0,1,2, \cdots) $ 代入方程 $ T^{\prime \prime}(t)+\lambda a^{2} T(t)=0 $ 中,
+
+得 $ T_{k}^{\prime \prime}(t)+\left(\frac{2 k+1}{2 l} \pi\right)^{2}a^2 T(t)=0 $,
+
+其通解为 $ T_{k}(t)=a_{k} \cos \frac{2 k+1}{2 l} a \pi t+b_{k} \sin \frac{2 k+1}{2 l} a \pi t, k=0,1.2 \ldots $, 其中 $ a_{k}, b_{k} $ 为任意常数,
+
+于是 $ u_{k}(x, t)=X_{k}(x) \cdot T_{k}(t)=\left(A_{k} \cos \frac{2 k+1}{2 l} a \pi t+B_{k} \cdot \sin \frac{2 k+1}{2l} a \pi t\right) \sin \frac{2 k+1}{2l} \pi x $, \\其中 $ A_{k}=C_{k} \cdot a_{k}, B_{k}=C_{k} \cdot b_{k} $ 是任意常数.
+
+因为微分方程和边界条件都是齐次的，把它们的全部无穷多个特解叠加起来,
+
+即 $ u(x, t)=\sum\limits_{k=0}^{\infty}\left(A_{k} \cos \frac{2k+1}{2l} a \pi t+B_{k} \sin \frac{2 k+1}{2l} a \pi t\right) \sin \frac{2 k+1}{2l} \pi x $, 满足方程和边界条件.
+
+下面确定系数 $ A_{k}, B_{k} $ 使求得的 $ u(x, t) $ 形式的解满足 $ \left\{\begin{array}{l}u \left(x,0\right)=\frac{h}{l}\cdot x \\
+u_{t}\left( x,0 \right)=0\end{array}\right. $,
+
+即 $ \left\{\begin{array}{l}\left.u\right|_{t=0}=\sum\limits_{k=0}^{\infty} A_{k} \cdot \sin \frac{2 k+1}{2 l} \pi x=\frac{h}{l} \cdot x \\ \left.u_{t}\right|_{t=0}=\sum\limits_{k=0}^{\infty} B_{k} \cdot \frac{2 k+1}{2 l} a \cdot \pi \cdot \sin \frac{2 k+1}{2 l} \pi x=0 .\end{array}\right.
+$
+
+由傅里叶级数知道
+$ \varphi(x)=\frac{h}{l} \cdot x $ 和 $ \psi(x)=0 $ 满足狄利克雷充分条件, 
+
+可以在 $ [0,l] $ 上展开成正弦级数, 
+
+易知 $ A_{k} $ 及 $ \frac{k \pi a}{l} B_{k} $ 分别是 $ \varphi(x) $ 和 $ \psi(x) $ 在 $ [0,l] $ 上 正弦展开式的傅里叶系数, 
+%\renewcommand{\arraystretch}{因子}：这个命令用于调整array环境中行之间的垂直间距。默认情况下，因子是1，表示正常的行距。你可以将因子设置为大于1的值以增加行距，或设置为小于1的值以减小行距。例如，\renewcommand{\arraystretch}{1.5}将增加行距为正常行距的1.5倍。
+于是得
+\renewcommand{\arraystretch}{1.3}
+$$
+\begin{array}{l} 
+A_{k}=\frac{2}{l} \int_{0}^{l} \varphi(\xi) \sin \frac{2 k+1}{2 l} \pi \xi d \xi \\
+=\frac{2}{l} \int_{0}^{l} \frac{h}{l} \xi \cdot \sin \frac{2 k+1}{2 l} \pi \xi d \xi \\
+=\frac{4 h}{(2 k+1) \pi l} \int_{0}^{l} \xi \cdot d \cos \frac{2 k+1}{2 l} \pi \xi \\
+=\frac{4 h}{(2 k+1) \pi l}\left[\left.\xi \cdot \cos \frac{2 k+1}{2 l} \pi \xi\right|_{0} ^{l}-\int_{0}^{l} \cos \frac{2 k+1}{2 l} \pi \xi d \xi\right] \\
+=\frac{4 h}{(2 k+1) \pi l}\left[(-1)^{k} \frac{2 l}{(2 k+1) \pi}\right] \\
+=(-1)^{k} \cdot \frac{8 h}{(2 k+1)^{2} \pi^{2}} \\ B_{k}=0 \\
+\end{array}
+$$
+
+因此, $ u(x, t)=\frac{8 h}{\pi^{2}} \sum\limits_{k=0}^{\infty} \frac{(-1)^{k}}{(2 k+1)^{2}} \cos \frac{2 k+1}{2 l} a \pi t \cdot \sin \frac{2 k+1}{2 l} \pi x$.
+\end{solution}
+
+
+\question{ 求弦振动方程 $ u_{tt}-a^{2} u_{x x}=0,0<x<l, t>0 $
+满足以下定解条件的解:
+$$
+\left\{\begin{array}{l}
+\left.u_{x}\right|_{x=0}=\left.u_{x}\right|_{x=l}=0 \\
+\left.u\right|_{t=0}=x,\left.u_{t}\right|_{t=0}=0
+\end{array}\right.
+$$
+}
+\begin{solution}
+令 $ u(x, t)=X(x) \cdot T(t) $, 代入定解问题中有
+$
+\frac{T^{\prime \prime}(t)}{a^{2} T(t)}=\frac{X^{\prime \prime}(x)}{X(x)}=-\lambda
+$\\
+得到两个独立的常微分方程 $ \left\{\begin{array}{l}T^{\prime \prime}(t)+\lambda a^{2} T(t)=0 \\ X^{\prime \prime}(x)+\lambda X(x)=0\end{array}\right. $\\
+又由边界条件 
+$ X^{\prime}(0) T(t)=X^{\prime}(l) T(t)=0 .$\\
+由于 $ T(t) \neq 0 $,则 
+$X^{\prime}(0)=X^{\prime}(l)=0.$\\
+所以 $ \left\{\begin{array}{l}X^{\prime \prime}(x)+\lambda X(x)=0,0< x < l \\ X^{\prime}(0)=X^{\prime}(l)=0 .\end{array}\right. $\\
+经过讨论可知，当 $ \lambda<0 $ 时,上述问题只有零解;\\
+当 $ \lambda=0 $ 时可得非零的常数解 $ X_{0}(x)=A_0\neq 0 $;
+当$\lambda > 0$时,边值问题中方程的通解为:
+$$
+X(x)=C_{1} \cos \sqrt{\lambda} x+C_{2} \sin \sqrt{\lambda} x
+$$
+于是 $ X^{\prime}(x)=-C_{1} \sqrt{\lambda} \sin \sqrt{\lambda} x+C_{2} \sqrt{\lambda} \cos \sqrt{\lambda} x $\\
+由边界条件 $ X^{\prime}(0)=X^{\prime}(l)=0 $,
+有 $ \left\{\begin{array}{l}C_{2} \sqrt{\lambda}=0 \\ -C_{1} \sqrt{\lambda} \sin \sqrt{\lambda} \cdot l+C_{2} \sqrt{\lambda} \cdot \cos \sqrt{\lambda} \cdot l=0 .\end{array}\right. $\\
+解得 $ C_{2}=0 $ 且 $ C_{1} \sqrt{\lambda} \cdot \sin \sqrt{\lambda} \cdot l=0 $
+$ \Rightarrow \sin \sqrt{\lambda} l=0 $,即 $ \lambda=\lambda_{k}=\frac{k^{2} \pi^{2}}{l^{2}}$ ， $k=1,2 \cdots $\\
+得一族非零解 $ X_{k}(x)=c_{k} \cos \frac{k \pi}{l} x \quad$, $k=0,1,2 \cdots $\\
+将 $ \lambda_{k} $ 代入$T^{\prime \prime}(t)+\lambda a^{2} T(t)=0 $ 中,解得其通解为
+$$
+T_{k}(t)=a_{k} \cos \frac{k \pi a t}{l}+b_{k} \cdot \sin \frac{k \pi a t}{l} \quad k=1,2 \ldots$$
+$k=0 $, 时 $ T_{k}(t)=a t+b $. \\
+因此
+$
+ u_{k}(x, t)=T_{k}(t) \cdot X_{k}(t)=\left\{\begin{array}{l}
+a_{0} t+b_{0} ,\quad k=0 \quad (a_0=ac_0, b_0=bc_0)\\
+\left(A_{k} \cdot \cos \frac{k \pi a t}{l}+B_{k} \cdot \sin \frac{k \pi a t}{l}\right) \cos \frac{k \pi}{l} x  , k=1,2 \ldots
+\end{array}\right.
+$\\
+满足方程和边界条件.\\
+由于方程和边界条件都是线性的, 故由叠加原理知，
+所求的形式解为 
+$$ u(x, t)=\sum_{k=1}^{\infty}\left(A_{k} \cos \frac{k \pi a t}{l}+B_{k} \sin \frac{k \pi a t}{l}\right) \cdot \cos \frac{k \pi}{l} x+a_0t+b_0  $$
+其中系数 $ A_{k}, B_{k} $ 由初始条件 $ \left\{\begin{array}{l}u(x, 0)=x \\ u_{t}(x, 0)=0\end{array}\right. $ 确定,
+$\\
+\text { 即 }\left\{\begin{array}{l}
+\left.u\right|_{t=0}=\sum\limits _{k=1}^{\infty} A_{k} \cdot \cos \frac{k \pi}{l} x=x \\
+\left.u_{t}\right|_{t=0}=\sum\limits_{k=1}^{\infty} B_{k} \frac{k \pi a}{l} \cos \frac{k \pi x}{l}=0
+\end{array}\right. 
+$
+ 从而 
+\begin{equation*}
+\begin{aligned}
+A_{k}&=\frac{2}{l} \int_{0}^{l} x \cdot \cos \frac{k \pi}{l} x d x\\ 
+&=\frac{2}{k \pi} \int_{0}^{l} x \cdot d\left(\sin \frac{k \pi x}{l}\right) \\
+&=\frac{2}{k \pi}\left[\left.x \cdot \sin \frac{k \pi x}{l}\right|_{0} ^{l}-\int_{0}^{l} \sin \frac{k \pi x}{l} d x\right] \\
+&=\frac{2}{k \pi}\left(\left.\frac{l}{k \pi} \cos \frac{k \pi x}{l}\right|_{0} ^{l}\right) \\
+&=\frac{2 l}{k^{2} \pi^{2}}\left[(-1)^{k}-1\right] \quad ,k=1,2 \ldots \\
+\end{aligned}
+\end{equation*}
+$k=0 $时有 $a_{0}=\frac{1}{l} \int_{0}^{l} x d x=\frac{l}{2} $, 
+$b_{0}=0$ 且$B_{k}=0, k=1,2 \ldots $\\
+因此 $$ u(x, t)=\frac{l}{2}+\sum_{k=1}^{\infty}\frac{2 l}{k^{2} \pi^{2}} \cdot\left[(-1)^{k}-1\right] \cdot \cos \frac{k \pi a t}{l} \cdot \cos \frac{k \pi}{l} x $$
+\end{solution}
+\end{questions}

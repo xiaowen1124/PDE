@@ -1,0 +1,90 @@
+\begin{questions}
+\question{ 对受摩擦阻力作用且具固定端点的有界弦振动，满足方程
+$$
+u_{t t}=a^{2} u_{x x}-c u_{t}
+$$
+其中常数 $ c>0 $, 证明其能量是减少的, 并由此证明方程 
+$$ u_{t t}=a^{2} u_{x x}-c u_{t}+f $$ 的初边值问题解的唯一性.
+}
+\begin{solution}
+$\text { 设 } E(t)=\int_{0}^{l}\left(u_{t}^{2}+a^{2} u_{x}^{2}\right) d x $
+$$
+\begin{aligned}
+\frac{d E(t)}{d t}&=2 \int_{0}^{l}\left(u_{t} u_{t t}+a^{2} u_{x} u_{x t}\right) d x \\
+&=2 \int_{0}^{l}\left(u_{t} u_{t t}-a^{2} u_{t} u_{x x}+a^{2} u_{x} u_{t x}+a^{2} u_{t} u_{x x}\right) d x \\
+&=2 \int_{0}^{l}\left[u_{t}\left(u_{tt}-a^{2} u_{x x}\right)+a^{2} \frac{\partial}{\partial x}\left(u_{t} u_{x}\right)\right] d x \\
+&=2 \int_{0}^{l}\left[-c u_{t}^{2}+a^{2} \frac{\partial}{\partial x}\left(u_{t} u_{x}\right)\right] d x  \\
+&=-2 \int_{0}^{l}cu_{t}^{2} d x+2\left.a^{2}\left(u_{t} u_{x}\right)\right|_{0} ^{l} \quad \left(u(0, t)=u(1, t)=0\right)\\
+&=-2 c \int_{0}^{1} u_{t}^{2} d x \leqslant 0 \\
+\end{aligned}
+$$
+ 故其能量是减少的 
+
+下证初边值问题解的唯一性
+$$
+\left\{\begin{array}{l}
+u_{t t}=a^{2} u_{x x}-c u_{t}+f \\
+u(0, t)=0, u(l, t)=0 \\
+u(x, 0)=\varphi(x), u_{t}(x, 0)=\psi(x)
+\end{array}\right.
+$$
+设$u_1, u_2$是上述问题的解。
+令 $ V=u_{1}-u_{2} $, 则$V $ 满足
+$$
+\left\{\begin{array}{l}
+V_{t t}=a^{2} V_{x x}-c V_{t} \\
+V(0, t)=0, \quad V(l, t)=0 \\
+V(x, 0)=0 , \quad V_{t}(x, 0)=0
+\end{array}\right.
+$$
+则能量 $ E(t)=\int_{0}^{l}\left(V_{t}^{2}+a^{2} V_{x}^{2}\right) d x $
+$\Rightarrow E(0)=0$.
+
+由于 $ E(t) $ 是减少的，因此 $ t>0 $ 时 $ E(t) \leqslant E(0)=0 $
+
+而由 $ E(t) $ 表达式知 $ E(t) \geqslant 0 $，
+所以 $ E(t)=0 \Rightarrow \int_{0}^{l}\left(V_{t}^{2}+a^{2} V_{x}^{2}\right) d x=0 $
+
+即 $ V_{t}=0, V_{x}=0 $，所以$V$ 恒为常量. 
+由初始条件 $ V(0, t)=V(l, t)=0 $
+知 $ V \equiv 0 $ 
+
+即 $ u_{1}-u_{2}=0 \Rightarrow u_{1}=u_{2} $. 得证.
+\end{solution}
+\question{
+考虑波动方程的第三类初边值问题
+$
+\left\{\begin{array}{l}
+u_{t t}-a^{2}\left(u_{x x}+u_{y y}\right)=0, t>0,(x, y) \in \Omega \\
+\left.u\right|_{t=0}=\varphi(x, y),\left.u_{t}\right|_{t=0}=\psi(x, y) \\
+\left.\left(\frac{\partial u}{\partial \vec{\boldsymbol n}}+\sigma u\right)\right|_{\Gamma}=0
+\end{array}\right.
+$
+
+其中 $ \sigma>0 $ 是常数，$\Gamma$为$\Omega$的边界，
+$ \vec{\boldsymbol n} $ 为$\Gamma$上的单位外法线向量.
+对于上述定解问题的解，定义能量积分
+$$
+E(t)=\iint_{\Omega}\left[u_{t}^{2}+a^{2}\left(u_{x}^{2}+u_{y}^{2}\right)\right] d x d y+a^{2} \int_{\Gamma} \sigma u^{2} d s
+$$
+证明 $ E(t) \equiv $ 常数， 并由此证明上述定解问题解的唯一性.
+}
+\begin{solution}
+即证 $ E^{\prime}(t)=0 $.
+$$
+\begin{aligned}
+E^{\prime}(t)&=2 \iint_{\Omega}\left[u_{t} u_{t t}+a^{2}\left(u_{x} u_{x t}+u_{y} u_{y t}\right)\right] d x d y+2 a^{2} \int_{\Gamma} \sigma uu_{t} d s \\
+&=2 \iint_{\Omega} u_{t}\left[u_{t t}-a^{2}\left(u_{x x}+u_{y y}\right)\right] d x d y +2 a^{2} \int_{\Gamma}\left[u_{x} u_{t} \cos (\vec{\boldsymbol n}, x)+u_{y} u_{t} \cos (\vec{\boldsymbol n}, y)\right] d s+2 a^{2} \int_{\Gamma} \sigma uu_{t} d s \\
+&=2 \iint_{\Omega} u_{t}\left[u_{t t}-a^{2}\left(u_{x x}+u_{y y}\right)\right] d x d y+2 a^{2} \int_{\Gamma} u_{t}\left(\frac{\partial u}{\partial \vec{\boldsymbol n}}+\sigma u\right) d s \\
+&=0 
+\end{aligned}
+$$
+由 $ \frac{d E(t)}{d t}=0 $ 知 $ E(t) $ 是 一 与 $t$ 无关的常数. 即 $ E(t) \equiv $ 常数
+
+下证初边值问题解的唯一性:\\
+由于方程是线性的，即证初始条件为零时 其解恒为零.
+由于 $ E(t)=E(0)=0 $.
+且能量表达式各项非负，即 $ u_{t}=u_{x}=u_{y}=0 $.
+因此 $u \equiv$ 常数.又 $\left.u\right|_{t=0}=0$, 故$ u \equiv 0 .$得证.
+\end{solution}
+\end{questions}

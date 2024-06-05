@@ -1,0 +1,121 @@
+\begin{questions}
+\question{ 设 $ u\left(x_{1}, x_{2} \cdots x_{n}\right)=f(r) $. (其中 $ \left.r=\sqrt{x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}}\right) $ 是$n$维调和函数. 即满足方程 
+$$ \frac{\partial^{2} u}{\partial x_{1}^{2}}+\cdots+\frac{\partial^{2} u}{\partial x_{n}^{2}}=0 $$
+试证明: $$ f(r)=\left\{\begin{aligned}c_{1}+\frac{c_{2}}{r^{n-2}} \quad, n \neq 2 \\ c_{1}+c_{2} \ln \frac{1}{r} \quad, n=2\end{aligned}\right. $$ 其中 $ c_{1} , c_{2} $ 为任意常数
+}
+\begin{solution}
+ 令  $t=x_{1}^{2}+x_{2}^{2}+\cdots+x_{n}^{2}$ , 则 $ r=\sqrt{t}$ , 且对 $ \forall x_{i}(i=1,2 \cdots n)$有
+ $$\frac{\partial r}{\partial x_{i}}=\frac{\partial r}{\partial t} \cdot \frac{\partial t}{\partial x_{i}}=\frac{1}{2 \sqrt{t}} \cdot 2 x_{i}=\frac{x_{i}}{r}$$
+ 于是$$  \frac{\partial u}{\partial x_{i}}=f^{\prime}(r) \cdot \frac{\partial r}{\partial x_{i}}=f^{\prime}(r) \cdot \frac{x_{i}}{r}$$
+
+$$\begin{aligned}
+\frac{\partial^{2} u}{\partial x_{i}^{2}}&=\frac{\partial}{\partial x_{i}}\left(f^{\prime}(r) \cdot \frac{x_{i}}{r}\right) \\
+&=f^{\prime \prime}(r) \cdot \frac{\partial r}{\partial x_{i}} \cdot \frac{x_{i}}{r}+f^{\prime}(r) \cdot \frac{r-x_{i} \cdot \frac{\partial r}{\partial x_{i}}}{r^2} \\
+&=f^{\prime \prime}(r) \cdot \frac{x_{i}^{2}}{r^{2}}+f^{\prime}(r) \cdot\left(\frac{1}{r}-\frac{x_{i}^{2}}{r^{3}}\right)
+\end{aligned}
+$$
+$$
+\begin{aligned}
+\Delta u=\sum_{i=1}^{n} \frac{\partial^{2} u}{\partial x_{i}^{2}}&=\frac{f^{\prime \prime}(r)}{r^{2}} \sum_{i=1}^{n} x_{i}^{2}+n \cdot \frac{f^{\prime}(r)}{r}-\frac{f^{\prime}(r)}{r^{3}} \sum_{i=1}^{n} x_{i}^{2} \\
+&=f^{\prime \prime}(r)+\frac{n}{r} f^{\prime}(r)-\frac{1}{r} \cdot f^{\prime}(r) \\
+&=f^{\prime \prime}(r)+\frac{n-1}{r} f^{\prime}(r)=0 \text {. } 
+\end{aligned}
+$$
+$\text { 令} f^{\prime}(r)=h(r) \text {, 则 } f^{\prime \prime}(r)=h^{\prime}(r) $
+$\Rightarrow \quad h^{\prime}(r)+\frac{n-1}{r} h(r)=0 $\\
+$\text { 积分因子 } \mu(r)=e^{\int \frac{n-1}{r} d r}=r^{n-1} $，用 $ \mu(r) $ 乘以方程两端得
+$$h^{\prime}(r) \cdot r^{n-1}+(n-1) r^{n-2} h(r)=0 $$
+$\text { 即 } d\left[h(r) \cdot r^{n-1}\right]=0$ $\Rightarrow h(r) \cdot r^{n-1}=c$. 即  $h(r)=c r^{1-n}$.因此$f^{\prime}(r)=c r^{-n}$.
+$$
+n=2 \text { 时 } f^{\prime}(r)=\frac{c}{r} \Rightarrow f(r)=c_{1}+c_{2} \ln \frac{1}{r} 
+$$
+$$
+n \neq 2 \text { 时 } f^{\prime}(r)=c \cdot r^{-n} \Rightarrow f(r)=c_{1}+\frac{c_{2}}{r^{n-2}} .
+$$
+\end{solution}
+
+
+
+\question{ 设 $$J(v)=\iint_{\Omega} \frac{1}{2}\left[\left(\frac{\partial v}{\partial x}\right)^{2}+\left(\frac{\partial v}{\partial y}\right)^{2}+\left(\frac{\partial v}{\partial z}\right)^{2}\right] d x d y d z+\iint_{T}\left(\frac{1}{2} \sigma v^{2}-g v\right) d s$$ 
+变分问题的提法为: 求 $ u \in V$  ，使 $ J(u)=\min \limits_{v \in V} J(v) $ 其中 $ V=C^{2}(\Omega) \cap C^{1}(\overline{\Omega}) $.
+试导出与此变分问题等价的边值问题，并证明它们的等价性。 
+}
+\begin{solution}
+该变分问题等价于下面的定解问题
+$$
+\left\{\begin{aligned}
+&\Delta u=0 \\
+&\left.\left(\frac{\partial u}{\partial \vec{\boldsymbol{n}}}+\sigma u\right)\right|_{\Gamma}=g
+\end{aligned}\right.
+$$
+
+设 $ u $ 是变分问题的解. 任取 $ w \in V $ ，令 $ v=u+\lambda w $.
+其中$\lambda$为任一实数，显然有 $ v \in V $
+$$
+\begin{aligned}
+J(v)=J(u+\lambda w)&=\iiint_{\Omega} \frac{1}{2}\left[\left(\frac{\partial}{\partial x}(u+\lambda w)\right)^{2}+\left(\frac{\partial}{\partial y}(u+\lambda w)\right)^{2}+\left(\frac{\partial}{\partial z}(u+\lambda w)\right)^{2}\right] 
+d x d y d z\\&+\iint_{\Gamma}\frac{1}{2} \sigma(u+\lambda w)^{2}-g(u+\lambda w) d s \\
+&=J(u)+\lambda \iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z\\&+\frac{\lambda^{2}}{2} \iiint_{\Omega}\left(w_{x}^{2}+w_{y}^{2}+w_{z}^{2}\right) d x d y d z \\
+&+\iint_{T} \frac{1}{2} \sigma\left(2 \lambda u w+\lambda^{2} w^{2}\right)-\lambda g w d s
+\end{aligned}
+$$
+
+ $J(u+\lambda w) $ 在 $ \lambda=0 $ 时取极小值: $$ \left.\frac{d}{d \lambda}[J(u+\lambda w)]\right|_{\lambda=0}=0 $$
+即 $$ \iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z+\iint_{\Gamma} \sigma u w-g w d s=0 $$ 
+由格林公式 
+$$\begin{aligned} &\iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z \\
+&=\iiint_{\Omega}\left[\frac{\partial}{\partial x}\left(w \frac{\partial u}{\partial x}\right)+\frac{\partial}{\partial y}\left(w \cdot \frac{\partial u}{\partial y}\right)+\frac{\partial}{\partial z}\left(w \cdot \frac{\partial u}{\partial z}\right)\right. \left.-w\left(\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}+\frac{\partial^{2} u}{\partial z^{2}}\right)\right] d x d y d z \\
+&=\iint_{\Gamma} w \cdot \frac{\partial u}{\partial \vec{\boldsymbol n}} d s-\iiint_{\Omega}(w \Delta u) d x d y d z
+\end{aligned}
+$$
+因此有 $$ \iint_{\Gamma } w\left(\frac{\partial u}{\partial \vec{n}}+\sigma u-g\right) d s-\iiint_{\Omega} w \cdot \Delta u d x d y d z=0 $$ 
+对 $ \forall w \in V $ 上式均成立。
+我们先取 $ \left.w\right|_{\Gamma }=0 $. 则 $ \iint_{\Gamma} w\left(\frac{\partial u}{\partial \vec{\pi}}+\sigma u-g\right) d s=0 $
+
+于是有 $$ \iiint_{\Omega} w \cdot \Delta u d x d y d z=0 \Rightarrow \Delta u=0
+$$
+再由$w$的任意性得 $ \iint_{\Gamma}\left(\frac{\partial u}{\partial \vec{n}}+\sigma u-g\right) d s=0 $, 即$\frac{\partial u}{\partial \vec{n}}+\sigma u=g$
+$$
+\Rightarrow\left\{\begin{aligned}
+&\Delta u=0 \\
+&\left.\left(\frac{\partial u}{\partial \vec{\boldsymbol{n}}}+\sigma u\right)\right|_{\Gamma}=g
+\end{aligned}\right.
+$$
+
+
+
+若 $ u \in V $ 是定解问题 $ \left\{\begin{array}{l}\Delta u=0 \\ (\frac{\partial u}{\partial \vec{n}}+\left.\sigma u)\right|_{\Gamma}=g .\end{array}\right. $ 的解,
+则对$V$中任一给定的$w$.
+成立如下:
+$$
+\iiint_{\Omega} \Delta u \cdot w d x d y d z=0
+$$
+利用格林公式知
+$$
+\begin{aligned}
+\iiint_{\Omega} \Delta u \cdot w d x d y d z & =\iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z \\
+& -\iint_{\Gamma} w\left(\frac{\partial u}{\partial \vec{n}}+\sigma u-g\right) ds \\
+& =\iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z-0 \\
+& =0
+\end{aligned}
+$$
+$$
+\text { 即 } \iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z=0
+$$
+任给 $ v\in V $ 令 $ w=v-u \in V $. 则
+$$
+\begin{aligned}
+J(v)=J(u+w)&=J(u)+\iiint_{\Omega}\left(\frac{\partial u}{\partial x} \cdot \frac{\partial w}{\partial x}+\frac{\partial u}{\partial y} \cdot \frac{\partial w}{\partial y}+\frac{\partial u}{\partial z} \cdot \frac{\partial w}{\partial z}\right) d x d y d z \\
+&+\frac{1}{2} \iiint_{\Omega}\left(w_{x}^{2}+w_{y}^{2}+w_{z}^{2}\right) d x d y d z+\iint_{\Gamma}\left(\sigma u w+\frac{1}{2} \sigma w^{2}-g w\right) d s
+\end{aligned}
+$$
+$$
+\text { 因此 } J(v)=J(u)+\frac{1}{2} \iiint_{\Omega}\left(w_{x}^{2}+w_{y}^{2}+w_{z}^{2}\right) d x d y d z+\iint_{\Gamma}\left(\sigma u w+\frac{1}{2} \sigma w^{2}-g w\right) ds
+$$
+由于 $ w \in V $, 因此 $ J(v) \geqslant J(u) $ 当且仅当 $ w=0 $ 时取等号.
+
+故 $$ J(u)=\min _{v \in V} J(v) $$
+
+
+\end{solution}
+\end{questions}

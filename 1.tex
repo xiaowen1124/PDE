@@ -1,0 +1,36 @@
+\begin{questions}
+\question{若 $ F(\xi) , G(\xi) $ 均为其变元的二次连续可导函数，验证 $ F(x-a t) ， G(x+a t) $ 均满足弦振动方程: 
+$$ \quad \frac{\partial^{2} u}{\partial t^{2}}-a^{2} \frac{\partial^{2} u}{\partial x^{2}}=0 $$
+}
+ 
+
+\begin{solution}
+  $$\text { 令 } \xi=x-a t$$
+$$\frac{\partial F}{\partial t}=F^{\prime} \cdot \frac{\partial \xi}{\partial t}  =-a F^{\prime} $$
+$$\frac{\partial^{2} F}{\partial t^{2}}=\frac{\partial}{\partial t}\left(\frac{\partial F}{\partial t}\right)  =-a\left(F^{\prime \prime} \cdot \frac{\partial \xi}{\partial t}\right)=a^2F^{\prime \prime}$$
+$$\frac{\partial F}{\partial x}=F^{\prime} \cdot \frac{\partial \xi}{\partial x}=F^{\prime} $$	
+$$\frac{\partial^{2} F}{\partial x^{2}}=\frac{\partial}{\partial x}\left(\frac{\partial F}{\partial x}\right)=F^{\prime \prime} \cdot \frac{\partial \xi}{\partial x}=F^{\prime \prime}$$
+则 $ \frac{\partial^{2} F}{\partial t^{2}}-a^{2} \frac{\partial^{2} F}{\partial x^{2}}=a^{2} F^{\prime \prime}-a^{2} \cdot F^{\prime \prime}=0 $ 得证.
+$$
+ \text { 令 } \eta=x+a t
+$$
+$$
+\frac{\partial G}{\partial t}=G^{\prime} \cdot \frac{\partial \eta }{\partial t}=a G^{\prime}
+$$
+$$
+\frac{\partial^{2} G}{\partial t^{2}}=\frac{\partial}{\partial t}\left(\frac{\partial G}{\partial t}\right)=a\left(G^{\prime \prime} \cdot \frac{\partial \eta}{\partial t}\right)=a^{2} G^{\prime \prime}$$
+$$\frac{\partial G}{\partial x}=G^{\prime} \cdot \frac{\partial \eta}{\partial x}=G^{\prime}$$
+则 $ \frac{\partial^{2} G}{\partial t^{2}}-a^{2} \frac{\partial^{2} G}{\partial x^{2}}=a^{2} G^{\prime \prime}-a^2\cdot G^{\prime}=0 $ 得证
+\end{solution}
+\question{
+验证 $ u(x, y, t)=\frac{1}{\sqrt{t^{2}-x^{2}-y^{2}}} $ 在锥 $ t^{2}-x^{2}-y^{2}>0 $ 中满足波动方程 $ \frac{\partial^{2} u}{\partial t^{2}}=\frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}} $}
+\begin{solution}
+$$\text { 令 } \lambda=\sqrt{t^{2}-x^{2}-y^{2}} \quad\Rightarrow \lambda^{2}=t^{2}-x^{2}-y^{2}$$
+$$\text { 则 } \frac{\partial u}{\partial t}=-t \cdot \lambda^{-3} ,\quad \frac{\partial^{2} u}{\partial t^{2}}=3 t^{2} \cdot \lambda^{-5}-\lambda^{-3}$$
+$$\frac{\partial u}{\partial x}=x \cdot \lambda^{-3} \quad, \frac{\partial^{2} u}{\partial x^{2}}=3 x^{2} \cdot \lambda^{-5}+\lambda^{-3} $$
+$$\frac{\partial u}{\partial y}=y \cdot \lambda^{-3} \quad, \frac{\partial^{2} u}{\partial y^{2}}=3 y^{2} \cdot \lambda^{-5}+\lambda^{-3}$$
+$$ \frac{\partial^{2} u}{\partial x^{2}}+\frac{\partial^{2} u}{\partial y^{2}}=3\left(x^{2}+y^{2}\right)^{-5} \lambda^{-5}+2 \lambda^{-3} 
+=3\left(t^{2}-\lambda^{2}\right) \lambda^{-5}+2 \lambda^{-3}
+=3 t^{2} \cdot \lambda^{-5}-\lambda^{-3}=\frac{\partial^{2} u}{\partial t^{2}} \text { 得证. } $$
+\end{solution}
+\end{questions}

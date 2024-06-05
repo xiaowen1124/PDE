@@ -1,0 +1,56 @@
+\begin{questions}
+\question{ $$
+u\text {满足 }\left\{\begin{array}{l}
+u_{t t}-a^{2}\left(u_{x x}+u_{y y}\right)=0,\quad (x,y)\in \Omega ,t>0 \\
+u(x, y, t)=0 ,\quad(x, y) \in \partial \Omega \\
+u(x, y, 0)=\varphi(x, y) \\
+u_{t}(x, y, 0)=\psi(x, y)
+\end{array}\right.
+$$
+}
+证明: 
+$$
+\begin{aligned}
+&\iint_{\Omega}\left[u_{t} u_{t t}-a^{2}\left(u_{x x}+u_{y y}\right) u_{t}\right] d x d y\\
+&=\frac{1}{2} \frac{d}{d t} \iint\limits_{\Omega} u_{t}^{2} d x d y-a^{2} \oint\limits_{\partial \Omega}\left(u_{x} u_{t} \cos (\vec{\boldsymbol n}, x)+u_{y} u_{t} \cos (\vec{\boldsymbol n}, y)\right) d s +a^{2} \iint\limits_{\Omega}\left(u_{x} u_{t x}+u_{y} u_{t y}\right) d x d y \\
+&=\frac{1}{2} \frac{d}{d t} \iint\limits_{\Omega} u_{t}^{2} d x d y+\frac{a^{2}}{2} \frac{d}{d t} \iint\limits_{\Omega}\left(u_{x}^{2}+u_{y}^{2}\right) d x d y
+\end{aligned}
+$$
+\begin{solution}
+$$
+\text { 由 } \frac{d}{d t}\left(u_{t}^{2}\right)=2 u_{t} \cdot u_{t t} \text { 知 } \iint_{\Omega} u_{t} u_{t t} d x d y=\frac{1}{2} \frac{d}{d t} \iint\limits_{\Omega} u_{t}^{2}
+$$
+$$\text { 且有 } \Delta u=u_{x x}+u_{y y}$$
+
+利用方向导数的计算公式
+$$\frac{\partial u}{\partial \vec{\boldsymbol n}}=\frac{\partial u}{\partial x} \cdot \cos (\vec{\boldsymbol n}, x)+\frac{\partial u}{\partial y} \cdot \cos (\vec{\boldsymbol n}, y) $$
+我们计算如下：
+$$
+\begin{aligned}
+a^{2} \oint\limits_{\partial \Omega}u_{t} \cdot \frac{\partial u}{\partial \vec{\boldsymbol n}} d s&=a^{2} \oint\limits_{\partial \Omega} u_{t}\left[\frac{\partial u}{\partial x} \cdot \cos (\vec{\boldsymbol n}, x)+\frac{\partial u}{\partial y} \cdot \cos (\vec{\boldsymbol n} \cdot y)\right] d s \\
+&= a^{2} \oint\limits_{\partial \Omega} u_{t} \frac{\partial u}{\partial x} d y-u_{t} \frac{\partial u}{\partial y} d x \\
+\end{aligned}
+$$
+令$P=-u_{t} \cdot \frac{\partial u}{\partial y} ,\quad Q=u_{t} \cdot \frac{\partial u}{\partial x}$,
+则由格林公式得
+$$
+\begin{aligned}
+a^{2} \oint\limits_{\partial \Omega}u_{t} \cdot \frac{\partial u}{\partial \vec{\boldsymbol n}} d S&=a^{2} \iint\limits_{\Omega} \left[\frac{\partial}{\partial x}\left(u_{t} \frac{\partial u}{\partial x}\right)+\frac{\partial}{\partial y}\left(u_{t} \frac{\partial u}{\partial y}\right)\right] d x d y \\
+&=a^{2} \iint\limits_{\Omega}\left(u_{t x} \cdot \frac{\partial u}{\partial x}+u_{t} \frac{\partial^{2} u}{\partial x^{2}}+u_{t y} \frac{\partial u}{\partial y}+u_{t} \cdot \frac{\partial^{2} u}{\partial y^{2}}\right) d x d y \\
+&=a^{2} \iint\limits_{\Omega}\left(u_{t x} u_{x}+u_{t y} u_{y}+u_{t} \Delta u\right) d x d y \\
+&=a^{2} \iint\limits_{\Omega}\left(u_{x} u_{t x}+u_{y} u_{t y}\right) d x d y+a^{2} \iint\limits _{\Omega} u_{t} \Delta u d x d y
+\end{aligned}
+$$
+因此 
+$$ a^{2} \iint\limits_{\Omega} u_{t} \Delta u d x d y=a^{2} \oint\limits_{\partial \Omega} u_{t} \frac{\partial u}{\partial \vec{\boldsymbol n}} d s-a^{2} \iint\limits_{\Omega}\left(u_{x} u_{tx} +u_{y} u_{t y}\right) d x d y $$ 
+由于 $ u(x, y, t)=0 ,\quad(x, y) \in \partial \Omega $
+则 $ \left.u_{t}\right|_{\partial \Omega}=0 $.
+即有 $$ a^{2} \iint\limits_{\Omega} u_{t} \Delta u d x d y=-a^{2} \iint\limits_{\Omega}\left(u_{x} u_{t x}+u_{y} u_{t y}\right) d x d y $$
+ 注意到 $ \frac{d}{d t}\left(u_{x}^{2}+u_{y}^{2}\right)=2\left(u_{x} u_{t x}+u_{y} u_{t y}\right) $
+$$
+\Rightarrow a^{2} \iint\limits_{\Omega}\left(u_{x} u_{t x}+u_{y} u_{t y}\right) d x d y=\frac{a^{2}}{2} \frac{d}{d t} \iint\limits_{\Omega}\left(u_{x}^{2}+u_{y}^{2}\right) d x d y
+$$
+因此得证.
+
+\end{solution}
+\end{questions}
